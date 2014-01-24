@@ -1,0 +1,58 @@
+body{
+	background-color:grey;
+}
+
+#container{
+	position:relative;
+}
+
+#screen{
+	position:relative;
+	width:1024px;
+	height:600px;
+	margin-left:auto;
+	margin-right:auto;
+	background-color:black;
+}
+
+#mainMenu{
+	padding-top:150px;
+}
+
+#logo{
+	text-align:center;
+	color:white;
+	font-size:60px;
+}
+
+#btnPlay{
+	margin-top:50px;
+	margin-left:auto;
+	margin-right:auto;
+	width:200px;
+	height:80px;
+	text-align:center;
+	background-color:green;
+	border-radius:5px;
+	cursor:pointer;
+	font-size:50px;
+	color:rgb(230,230,230);
+	border:1px solid green;
+	line-height:80px;
+}
+
+#btnPlay:hover{
+	color:white;
+	border:1px solid white;
+}
+
+#player{
+	position:absolute;
+	width:64px;
+	height:80px;
+	background-color:white;
+}
+
+.tile{
+	position:absolute;
+}
