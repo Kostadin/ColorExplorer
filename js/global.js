@@ -21,3 +21,7 @@ var portal = 1;
 var leftPressed = false;
 var rightPressed = false;
 var upPressed = false;
+var currentTry = 0;
+var maxTries = 3;
+var deadAnimationHandle = null;
+var currentLevelIndex = 0;

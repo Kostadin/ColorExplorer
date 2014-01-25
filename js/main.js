@@ -19,11 +19,13 @@ function tileVisible(tile){
 }
 
 function loadLevel(id){
+	currentLevelIndex = 0;
 	currentLevel = jQuery.extend(true, {}, levels[id]);//Deep copy
 	var p = currentLevel.player;
 	currentColor = p.color;
 	p.vel = [0,0];
 	p.canJump = false;
+	p.dead = false;
 	setScreenOrigin(currentLevel);
 	$('#level').html('');
 	var player = '<div id="player" style="left:'+(p.x-screenOriginX)+'px;top:'+(p.y-screenOriginY)+'px;"/>';
@@ -36,6 +38,9 @@ function loadLevel(id){
 	$('#level').append(player);
 	$('#level').append(helmet);
 	$('#level').append(tiles);
+	$('#level').css({
+		display: 'block'
+	});
 }
 
 function runGame(){
@@ -88,6 +93,23 @@ function runGame(){
 		}
 		//Debug
 		$('#debug').html('<p>'+Math.round(p.x)+', '+Math.round(p.y)+'</p>');
+		if ((p.dead)&&(deadAnimationHandle == null)){
+			deadAnimationHandle = setTimeout(function(){
+				++currentTry;
+				if (currentTry>=maxTries) {
+					gameRunning = false;
+					clearInterval(runGameHandle);
+					runGameInterval = null;
+					alert('Game over.');
+					currentTry = 0;
+					$('#level').hide();
+					$('#mainMenu').show();
+				} else {
+					loadLevel(currentLevelIndex);
+				}
+				deadAnimationHandle = null;
+			},1000);
+		}
 	}else{	
 		clearInterval(runGameHandle);
 		runGameInterval = null;
@@ -96,7 +118,9 @@ function runGame(){
 
 function startGame(){
 	if (!gameRunning){
-		loadLevel(0);
+		currentTry = 0;
+		currentLevelIndex = 0;
+		loadLevel(currentLevelIndex);
 		$('#mainMenu').hide();
 		gameRunning = true;
 		runGameHandle = setInterval(runGame,1000/fps);

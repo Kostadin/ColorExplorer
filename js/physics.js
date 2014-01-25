@@ -28,6 +28,7 @@ function collision(p,t){
 
 function runPhysics(){
 	var p = currentLevel.player;
+	if (p.dead) return;
 	p.canJump = false;
 	//Cap the velocity
 	if (p.vel[0]>maxSideSpeed){
@@ -58,38 +59,54 @@ function runPhysics(){
 		var hVel = [stepVel[0],0];
 		var vVel = [0,stepVel[0]];
 		currPos = addVectors(currPos,stepVel);
-		for (var i=0;i<currentLevel.tiles.length;++i){
-			var tile = currentLevel.tiles[i];
-			if (tile.type==platform){
-				var option = 0;
-				while (collision({x:currPos[0],y:currPos[1],width:p.width,height:p.height},tile)){
-					if (option == 0){
-						currPos[1] -= stepVel[1];
-						vTouch = true;
-					} else if (option == 1) {
-						currPos[1] += stepVel[1];
-						currPos[0] -= stepVel[0];
-						vTouch = false;
-						hTouch = true;
-					} else if (option == 2) {
-						currPos[1] -= stepVel[1];
-						vTouch = true;
-						hTouch = true;
+		if (currPos[1]>=currentLevel.height){
+			p.dead = true;
+			currVel[1] = 0;
+			vTouch = true;
+		} else {
+			if (currPos[0]<0){
+				currPos[0] = 0;
+				currVel[0] = 0;
+				vTouch = true;
+			}
+			if (currPos[0]+p.width>currentLevel.width){
+				currPos[0] = currentLevel.width-p.width;
+				currVel[0] = 0;
+				vTouch = true;
+			}
+			for (var i=0;i<currentLevel.tiles.length;++i){
+				var tile = currentLevel.tiles[i];
+				if (tile.type==platform){
+					var option = 0;
+					while (collision({x:currPos[0],y:currPos[1],width:p.width,height:p.height},tile)){
+						if (option == 0){
+							currPos[1] -= stepVel[1];
+							vTouch = true;
+						} else if (option == 1) {
+							currPos[1] += stepVel[1];
+							currPos[0] -= stepVel[0];
+							vTouch = false;
+							hTouch = true;
+						} else if (option == 2) {
+							currPos[1] -= stepVel[1];
+							vTouch = true;
+							hTouch = true;
+						}
+						if (option < 3) {
+							option++;
+						} else{
+							break;
+						}
 					}
-					if (option < 3) {
-						option++;
-					} else{
-						break;
+					if (hTouch){
+						stepVel[0] = 0;
+						p.vel[0] = 0;
 					}
-				}
-				if (hTouch){
-					stepVel[0] = 0;
-					p.vel[0] = 0;
-				}
-				if (vTouch){
-					stepVel[1] = 0;
-					p.vel[1] = 0;
-					p.canJump = true;
+					if (vTouch){
+						stepVel[1] = 0;
+						p.vel[1] = 0;
+						p.canJump = true;
+					}
 				}
 			}
 		}
