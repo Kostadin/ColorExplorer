@@ -11,6 +11,9 @@ var colors=['red','yellow','green','blue'];
 var currentColor = 0;
 var currentColorCSS = colors[currentColor];
 var muteSound = false;
+var playerFacing = "right";
+var playerDivOffsetX = -23;
+var playerDivOffsetY = -20;
 //Animation counter
 var animationFrame = 0;
 var gameFrame = 0;

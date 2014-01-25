@@ -57,9 +57,11 @@ function runGame(){
 		if (rightPressed){
 			p.vel[0] += maxSideSpeed;
 			animationType = "run";
+			playerFacing = "right";
 		} else if (leftPressed){
 			p.vel[0] -= maxSideSpeed;
 			animationType = "run";
+			playerFacing = "left";
 		} else {
 			p.vel[0] = 0;
 		}
@@ -67,20 +69,44 @@ function runGame(){
 			p.vel[1] += initialJumpSpeed;
 			//alert('I can jump!');
 		}
-		var playerFrameInfo = getPlayerAnimationFrame(animationFrame, animationType);
-		//var playerFrameInfo = getPlayerAnimationFrame(0, animationType);
 		
 		//Process world
 		p.color = currentColor;
 		p.vel = addVectors(p.vel,gravity);
 		runPhysics();
+		
+		//Check if jumping or falling
+		if (p.vel[1] > 0)
+			animationType = "fall";
+		
+		if (p.vel[1] < 0)
+			animationType = "jump";
+			
+		var playerFrameInfo = getPlayerAnimationFrame(animationFrame, animationType);
+		//var playerFrameInfo = getPlayerAnimationFrame(0, animationType);
+
 		setScreenOrigin(currentLevel);
 		//Display
-		$('#player').css({
-			left: (p.x-screenOriginX)+'px',
-			top: (p.y-screenOriginY)+'px',
-			'background-position': playerFrameInfo.x + 'px ' + playerFrameInfo.y + 'px'
-		});
+		if (playerFacing == "right") {
+			$('#player').css({
+				left: (p.x-screenOriginX+playerDivOffsetX)+'px',
+				top: (p.y-screenOriginY+playerDivOffsetY)+'px',
+				'background-position': playerFrameInfo.x + 'px ' + playerFrameInfo.y + 'px',
+				'transform-origin': '50% 50%',
+				transform: 'scaleX(1)'
+			});
+		}
+		else {
+			//Must flip image when facing left
+			$('#player').css({
+				left: (p.x-screenOriginX+playerDivOffsetX)+'px',
+				top: (p.y-screenOriginY+playerDivOffsetY)+'px',
+				'background-position': playerFrameInfo.x + 'px ' + playerFrameInfo.y + 'px',
+				'transform-origin': '50% 50%',
+				transform: 'scaleX(-1)'
+			});
+		}
+		
 		$('#helmet').css({
 			left: (p.x-screenOriginX + playerFrameInfo.xHelmet)+'px',
 			top: (p.y-screenOriginY + playerFrameInfo.yHelmet)+'px'
@@ -165,4 +191,5 @@ $(function(){
 			startGame();
 		}
 	});
+
 });

@@ -67,18 +67,18 @@ var playerIdleAnimation = [
 var playerJumpAnimation = {
 		xHelmet: 0,
 		yHelmet: 0,
-		name: "jump01.png"
+		name: "jump.png"
 };
 
 var playerFallAnimation = [
 	{
 		xHelmet: 0,
 		yHelmet: 0,
-		name: "fall01.png"
+		name: "fall.png"
 	},
 	{
 		xHelmet: 0,
 		yHelmet: 0,
-		name: "fall01.png"
+		name: "fall.png"
 	}
 ];
