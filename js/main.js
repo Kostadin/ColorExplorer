@@ -38,7 +38,7 @@ function loadLevel(id){
 		if (tile.type==platform){
 			tiles += '<div id="tile_'+i+'" class="tile" style="left:'+(tile.x-screenOriginX+(-(platformWidth-tile.width)/2))+'px;top:'+(tile.y-screenOriginY+platformDivOffsetY)+'px;width:'+platformWidth+'px;height:'+platformHeight+'px;background-image:'+colorBackgrounds[tile.color]+';background-repeat:no-repeat;'+(((p.color!=tile.color)||!tileVisible(tile))?'display:none;':'')+'"/>';
 		} else {
-			tiles += '<div id="tile_'+i+'" class="tile portal" style="left:'+(tile.x-screenOriginX)+'px;top:'+(tile.y-screenOriginY-portalHeight)+'px;width:'+portalWidth+'px;height:'+portalHeight+'px;'+((!tileVisible(tile))?'display:none;':'')+'"/>';
+			tiles += '<div id="tile_'+i+'" class="tile portal" style="left:'+(tile.x-screenOriginX+(-(portalWidth-tile.width)/2))+'px;top:'+(tile.y-screenOriginY-portalHeight)+'px;width:'+portalWidth+'px;height:'+portalHeight+'px;'+((!tileVisible(tile))?'display:none;':'')+'"/>';
 		}
 	}
 
@@ -133,7 +133,7 @@ function runGame(){
 				});
 			} else {
 				$('#tile_'+i).css({
-					left: (tile.x-screenOriginX)+'px',
+					left: (tile.x-screenOriginX+(-(portalWidth-tile.width)/2))+'px',
 					top: (tile.y-screenOriginY-portalHeight)+'px',
 					display: ((tileVisible(tile))?'block':'none')
 				});

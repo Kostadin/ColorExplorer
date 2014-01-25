@@ -3,7 +3,7 @@
 	height:600,
 	player: {
 		x:0,
-		y:0,
+		y:-10,
 		width:64,
 		height:80,
 		color:0
@@ -13,7 +13,7 @@
 		x:0,
 		y:100,
 		width:128,
-		height:20,
+		height:18,
 		color:0,
 		texture:'img/brick0.jpg'
 	},{
@@ -21,7 +21,7 @@
 		x:128,
 		y:200,
 		width:128,
-		height:20,
+		height:18,
 		color:1,
 		texture:'img/brick0.jpg'
 	},{
@@ -29,7 +29,7 @@
 		x:256,
 		y:300,
 		width:128,
-		height:20,
+		height:18,
 		color:2,
 		texture:'img/brick0.jpg'
 	},{
@@ -37,7 +37,7 @@
 		x:384,
 		y:400,
 		width:128,
-		height:20,
+		height:18,
 		color:3,
 		texture:'img/brick0.jpg'
 	},{
@@ -45,7 +45,7 @@
 		x:512,
 		y:500,
 		width:128,
-		height:20,
+		height:18,
 		color:0,
 		texture:'img/brick0.jpg'
 	},{

@@ -68,17 +68,18 @@ function runPhysics(){
 			if (currPos[0]<0){
 				currPos[0] = 0;
 				currVel[0] = 0;
-				vTouch = true;
+				hTouch = true;
 			}
 			if (currPos[0]+p.width>currentLevel.width){
 				currPos[0] = currentLevel.width-p.width;
 				currVel[0] = 0;
-				vTouch = true;
+				hTouch = true;
 			}
 			for (var i=0;i<currentLevel.tiles.length;++i){
 				var tile = currentLevel.tiles[i];
 				if (tile.type==platform){
 					var option = 0;
+					var wasVTouch = vTouch;
 					while (collision({x:currPos[0],y:currPos[1],width:p.width,height:p.height},tile)){
 						if (option == 0){
 							currPos[1] -= stepVel[1];
@@ -106,7 +107,9 @@ function runPhysics(){
 					if (vTouch){
 						stepVel[1] = 0;
 						p.vel[1] = 0;
-						p.canJump = true;
+						if ((currPos[1]+p.height<=tile.y)&&(!wasVTouch)){
+							p.canJump = true;
+						}
 					}
 				} else { // Portal
 					if (collision({x:currPos[0],y:currPos[1],width:p.width,height:p.height},tile)){
