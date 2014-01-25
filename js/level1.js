@@ -926,6 +926,14 @@ levels[1]={
                 texture:'img/brick0.jpg'
         },{
                 type: platform,
+                x:7878,
+                y:100,
+                width:128,
+                height:20,
+                color:2,
+                texture:'img/brick0.jpg'
+        },{
+                type: platform,
                 x:9600,
                 y:0,
                 width:128,
