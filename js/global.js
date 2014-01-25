@@ -1,4 +1,4 @@
-var fps = 30;
+﻿var fps = 30;
 var colorCount = 4;
 var screenWidth = 1024;
 var screenHeight = 600;

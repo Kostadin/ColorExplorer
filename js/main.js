@@ -1,4 +1,4 @@
-var runGameHandle = null;
+﻿var runGameHandle = null;
 
 function setScreenOrigin(level){
 	var ox = screenOriginX;
