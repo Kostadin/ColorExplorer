@@ -40,8 +40,7 @@ function runGame(){
 	if(gameRunning){
 		//Count frames
 		gameFrame++;
-		if (gameFrame == 30)
-			gameFrame = 0;
+
 		animationFrame = Math.floor(gameFrame / animationRatio);
 		
 		//Player variables
@@ -55,7 +54,7 @@ function runGame(){
 			p.x -= 10;
 			animationType = "run";
 		}
-		var helmOffset = helmetOffset(animationFrame, animationType);
+		var playerFrameInfo = getPlayerAnimationFrame(animationFrame, animationType);
 
 		//Process world
 		p.color = currentColor;
@@ -66,8 +65,8 @@ function runGame(){
 			top: (p.y-screenOriginY)+'px'
 		});
 		$('#helmet').css({
-			left: (p.x-screenOriginX + helmOffset.x)+'px',
-			top: (p.y-screenOriginY + helmOffset.y)+'px',
+			left: (p.x-screenOriginX + playerFrameInfo.x)+'px',
+			top: (p.y-screenOriginY + playerFrameInfo.y)+'px',
 			'background-color': colors[p.color]
 		});
 		for(var i=0;i<currentLevel.tiles.length;++i){
