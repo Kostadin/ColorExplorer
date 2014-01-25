@@ -54,6 +54,11 @@ function runGame(){
 			top: (p.y-screenOriginY)+'px',
 			'background-color': colors[p.color]
 		});
+		$('#helmet').css({
+			left: (p.x-screenOriginX)+'px',
+			top: (p.y-screenOriginY)+'px',
+			'background-color': colors[p.color]
+		});
 		for(var i=0;i<currentLevel.tiles.length;++i){
 			var tile = currentLevel.tiles[i];
 			$('#tile_'+i).css({
@@ -75,7 +80,7 @@ $(function(){
 			$('#mainMenu').hide();
 			gameRunning = true;
 			runGameHandle = setInterval(runGame,1000/fps);
-			backgroundTrack.play();
+			//backgroundTrack.play();
 		}
 	});
 	$('body').on('keydown',function(e){
