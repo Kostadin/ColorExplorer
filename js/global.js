@@ -10,9 +10,9 @@ var gameRunning = false;
 var colors=['red','yellow','green','blue'];
 var currentColor = 0;
 var currentColorCSS = colors[currentColor];
+var playSound = true;
 //Brick types
 var platform = 0;
 var portal = 1;
 var leftPressed = false;
 var rightPressed = false;
-var upPressed = false;

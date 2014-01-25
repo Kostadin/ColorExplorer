@@ -72,6 +72,7 @@ $(function(){
 			$('#mainMenu').hide();
 			gameRunning = true;
 			runGameHandle = setInterval(runGame,1000/fps);
+			backgroundTrack.play();
 		}
 	});
 	$('body').on('keydown',function(e){
@@ -88,6 +89,11 @@ $(function(){
 			upPressed = true;
 		} else if (code == 39) {
 			rightPressed = true;
+		}
+		//M for muting
+		if (e.which == 77 || e.which == 109) {
+			playSound = !playSound;
+			backgroundTrack.muted = playSound;
 		}
 	});
 	$('body').on('keyup',function(e){
