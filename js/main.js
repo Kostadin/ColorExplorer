@@ -19,7 +19,7 @@ function tileVisible(tile){
 }
 
 function loadLevel(id){
-	currentLevel = jQuery.extend(true, {}, levels[0]);//Deep copy
+	currentLevel = jQuery.extend(true, {}, levels[id]);//Deep copy
 	var p = currentLevel.player;
 	currentColor = p.color;
 	p.vel = [0,0];
@@ -60,7 +60,7 @@ function runGame(){
 		}
 		if ((upPressed)&&(p.canJump)){
 			p.vel[1] += initialJumpSpeed;
-			alert('I can jump!');
+			//alert('I can jump!');
 		}
 		var playerFrameInfo = getPlayerAnimationFrame(animationFrame, animationType);
 
@@ -96,7 +96,7 @@ function runGame(){
 $(function(){
 	$('#btnPlay').click(function(){
 		if (!gameRunning){
-			loadLevel(0);
+			loadLevel(1);
 			$('#mainMenu').hide();
 			gameRunning = true;
 			runGameHandle = setInterval(runGame,1000/fps);

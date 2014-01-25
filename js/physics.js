@@ -89,7 +89,7 @@ function runPhysics(){
 				if (vTouch){
 					stepVel[1] = 0;
 					p.vel[1] = 0;
-					p.canJump ||= true;
+					p.canJump = true;
 				}
 			}
 		}
