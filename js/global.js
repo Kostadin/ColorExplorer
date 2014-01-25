@@ -15,6 +15,7 @@ var muteSound = false;
 var playerFacing = "right";
 var playerDivOffsetX = -23;
 var playerDivOffsetY = -20;
+var parallaxRatio = 3;
 //Animation counter
 var animationFrame = 0;
 var gameFrame = 0;
@@ -26,6 +27,7 @@ var platformHeight = 54;
 var platformDivOffsetY = -10;
 var portal = 1;
 var portalHeight = 60;
+var portalWidth = 164;
 var leftPressed = false;
 var rightPressed = false;
 var upPressed = false;
