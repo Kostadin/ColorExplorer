@@ -18,9 +18,15 @@ function loadLevel(id){
 
 function runGame(){
 	if(gameRunning){
-		//Read player input
-		//Process world
 		var p = currentLevel.player;
+		//Read player input
+		if (rightPressed){
+			p.x += 10;
+		} else if (leftPressed){
+			p.x -= 10;
+		}
+		//Process world
+		
 		p.color = currentColor;
 		//Display
 		$('#player').css({
@@ -52,9 +58,28 @@ $(function(){
 	});
 	$('body').on('keydown',function(e){
 		var code = e.keyCode;
-		if(code == 32) {
-			currentColor = (++currentColor)%colorCount;
-			currentColorCSS = colors[currentColor];
+		if (gameRunning){
+			if (code == 32) {
+				currentColor = (++currentColor)%colorCount;
+				currentColorCSS = colors[currentColor];
+			}
+		}
+		if (code == 37) {
+			leftPressed = true;
+		} else if (code == 38) {
+			upPressed = true;
+		} else if (code == 39) {
+			rightPressed = true;
+		}
+	});
+	$('body').on('keyup',function(e){
+		var code = e.keyCode;
+		if (code == 37) {
+			leftPressed = false;
+		} else if (code == 38) {
+			upPressed = false;
+		} else if (code == 39) {
+			rightPressed = false;
 		}
 	});
 });
