@@ -61,6 +61,9 @@ function runPhysics(){
 		currPos = addVectors(currPos,stepVel);
 		if (currPos[1]>=currentLevel.height){
 			p.dead = true;
+			//Play sound
+			wilhelm.currentTime = 0;
+			wilhelm.play();
 			currVel[1] = 0;
 			vTouch = true;
 			break;
