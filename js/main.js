@@ -75,10 +75,9 @@ function runGame(){
 			top: (p.y-screenOriginY)+'px'
 		});
 		$('#helmet').css({
-			left: (p.x-screenOriginX + playerFrameInfo.x)+'px',
-			top: (p.y-screenOriginY + playerFrameInfo.y)+'px',
-			'background-color': colors[p.color]
-		});
+			left: (p.x-screenOriginX + playerFrameInfo.xHelmet)+'px',
+			top: (p.y-screenOriginY + playerFrameInfo.yHelmet)+'px'
+			});
 		for(var i=0;i<currentLevel.tiles.length;++i){
 			var tile = currentLevel.tiles[i];
 			$('#tile_'+i).css({
