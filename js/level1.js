@@ -277,7 +277,7 @@ levels[1]={
         },{
                 type: platform,
                 x:11520,
-                y:120,
+                y:140,
                 width:128,
                 height:18,
                 color:0,
@@ -511,7 +511,7 @@ levels[1]={
         },{
                 type: platform,
                 x:8576,
-                y:120,
+                y:140,
                 width:128,
                 height:18,
                 color:1,
@@ -519,7 +519,7 @@ levels[1]={
         },{
                 type: platform,
                 x:8832,
-                y:120,
+                y:180,
                 width:128,
                 height:18,
                 color:1,
@@ -567,7 +567,7 @@ levels[1]={
         },{
                 type: platform,
                 x:11904,
-                y:120,
+                y:140,
                 width:128,
                 height:18,
                 color:1,
