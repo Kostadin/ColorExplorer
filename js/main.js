@@ -29,6 +29,7 @@ function loadLevel(id){
 	p.win = false;
 	setScreenOrigin(currentLevel);
 	$('#level').html('');
+	var bgStuff = '<div id="bgStuff">';
 	var player = '<div id="player" style="left:'+(p.x-screenOriginX)+'px;top:'+(p.y-screenOriginY)+'px;"/>';
 	var helmet = '<div id="helmet" style="left:'+(p.x-screenOriginX)+'px;top:'+(p.y-screenOriginY)+'px;background-color:'+colors[p.color]+';"/>';
 	var tiles = '';
@@ -37,9 +38,11 @@ function loadLevel(id){
 		if (tile.type==platform){
 			tiles += '<div id="tile_'+i+'" class="tile" style="left:'+(tile.x-screenOriginX)+'px;top:'+(tile.y-screenOriginY)+'px;width:'+tile.width+'px;height:'+tile.height+'px;background-color:'+colors[tile.color]+';'+(((p.color!=tile.color)||!tileVisible(tile))?'display:none;':'')+'"/>';
 		} else {
-			tiles += '<div id="tile_'+i+'" class="tile portal" style="left:'+(tile.x-screenOriginX)+'px;top:'+(tile.y-screenOriginY-portalHeight)+'px;width:'+tile.width+'px;height:'+portalHeight+'px;background-color:white;'+((!tileVisible(tile))?'display:none;':'')+'"/>';
+			tiles += '<div id="tile_'+i+'" class="tile portal" style="left:'+(tile.x-screenOriginX)+'px;top:'+(tile.y-screenOriginY-portalHeight)+'px;width:'+portalWidth+'px;height:'+portalHeight+'px;'+((!tileVisible(tile))?'display:none;':'')+'"/>';
 		}
 	}
+
+	$('#level').append(bgStuff);
 	$('#level').append(player);
 	$('#level').append(helmet);
 	$('#level').append(tiles);
@@ -92,8 +95,8 @@ function runGame(){
 
 		setScreenOrigin(currentLevel);
 		
-		$('#level').css({
-			'background-position': -screenOriginX + 'px ' + '0px',
+		$('#bgStuff').css({
+			'background-position': (-screenOriginX / parallaxRatio) + 'px ' + '0px',
 			'transform-origin': '50% 50%',
 			transform: 'scaleX(1)'
 		});
