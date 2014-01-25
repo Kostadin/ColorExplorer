@@ -92,8 +92,8 @@ $(function(){
 		}
 		//M for muting
 		if (e.which == 77 || e.which == 109) {
-			playSound = !playSound;
-			backgroundTrack.muted = playSound;
+			muteSound = !muteSound;
+			backgroundTrack.muted = muteSound;
 		}
 	});
 	$('body').on('keyup',function(e){
