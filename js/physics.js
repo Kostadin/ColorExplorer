@@ -1,12 +1,12 @@
 var gravityPerSec = 100;
 var gravity = [0,gravityPerSec/fps];
-var maxDropSpeedPerSec = 160;
+var maxDropSpeedPerSec = 1000;
 var maxDropSpeed = maxDropSpeedPerSec/fps;
 var maxSideSpeedPerSec = 256;
 var maxSideSpeed = maxSideSpeedPerSec/fps;
-var maxJumpSpeedPerSec = -100;
+var maxJumpSpeedPerSec = -1000;
 var maxJumpSpeed = maxJumpSpeedPerSec/fps;
-var initialJumpSpeed = -160/fps;
+var initialJumpSpeed = -1000/fps;
 
 function addVectors(a,b){
 	return [a[0]+b[0],a[1]+b[1]]

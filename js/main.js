@@ -96,7 +96,7 @@ function runGame(){
 $(function(){
 	$('#btnPlay').click(function(){
 		if (!gameRunning){
-			loadLevel(1);
+			loadLevel(0);
 			$('#mainMenu').hide();
 			gameRunning = true;
 			runGameHandle = setInterval(runGame,1000/fps);
