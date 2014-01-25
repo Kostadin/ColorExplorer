@@ -293,7 +293,7 @@ levels[1]={
         },{
                 type: platform,
                 x:12800,
-                y:100,
+                y:120,
                 width:128,
                 height:20,
                 color:0,
