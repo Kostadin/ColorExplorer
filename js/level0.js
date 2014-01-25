@@ -1,4 +1,4 @@
-levels[0]={
+﻿levels[0]={
 	width:4096,
 	height:600,
 	player: {
