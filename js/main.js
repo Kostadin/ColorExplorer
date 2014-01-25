@@ -198,7 +198,7 @@ function startGame(){
 		$('#mainMenu').hide();
 		gameRunning = true;
 		runGameHandle = setInterval(runGame,1000/fps);
-		//backgroundTrack.play();
+		backgroundTrack.play();
 	}
 }
 

@@ -1,5 +1,5 @@
 ﻿//Audio objects
-var backgroundTrack = new Audio("audio/Test.mp3");
+var backgroundTrack = new Audio("audio/Melodikon_Basic_Background_1.mp3");
 //Looping
 backgroundTrack.addEventListener('ended', function() {
     this.currentTime = 0;
