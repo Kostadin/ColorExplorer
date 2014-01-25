@@ -110,15 +110,6 @@
 	background-image: url("../img/sprite/sheet.png");
 }
 
-#helmet{
-	border-radius: 50%;
-	position:absolute;
-	width:30px;
-	height:30px;
-	background-color:white;
-	z-index: 4;
-}
-
 .tile, .portal{
 	position:absolute;
 	z-index: 2;

@@ -34,7 +34,6 @@ function loadLevel(id){
 	$('#level').html('');
 
 	var player = '<div id="player" style="left:'+(p.x-screenOriginX)+'px;top:'+(p.y-screenOriginY)+'px;"/>';
-	var helmet = '<div id="helmet" style="left:'+(p.x-screenOriginX)+'px;top:'+(p.y-screenOriginY)+'px;background-color:'+colors[p.color]+';"/>';
 	var tiles = '';
 	var enemies = '';
 	for(var i=0;i<currentLevel.tiles.length;++i){
@@ -51,7 +50,6 @@ function loadLevel(id){
 		enemies += '<div id="enemy_'+i+'" class="enemy" style="left:'+enemy.x+'px;top:'+enemy.y+'px;background-color:'+colors[enemy.color]+'"></div>';
 	}
 	$('#level').append(player);
-	$('#level').append(helmet);
 	$('#level').append(tiles);
 	$('#level').append(enemies);
 	$('#level').css({
@@ -128,10 +126,6 @@ function runGame(){
 			});
 		}
 		
-		$('#helmet').css({
-			left: (p.x-screenOriginX + playerFrameInfo.xHelmet)+'px',
-			top: (p.y-screenOriginY + playerFrameInfo.yHelmet)+'px'
-			});
 		for(var i=0;i<currentLevel.tiles.length;++i){
 			var tile = currentLevel.tiles[i];
 			if (tile.type==platform){
