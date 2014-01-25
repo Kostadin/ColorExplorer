@@ -24,7 +24,7 @@ function loadLevel(id){
 	currentColor = p.color;
 	setScreenOrigin(currentLevel);
 	$('#level').html('');
-	var player = '<div id="player" style="left:'+(p.x-screenOriginX)+'px;top:'+(p.y-screenOriginY)+'px;background-color:'+colors[p.color]+';"/>';
+	var player = '<div id="player" style="left:'+(p.x-screenOriginX)+'px;top:'+(p.y-screenOriginY)+'px;"/>';
 	var helmet = '<div id="helmet" style="left:'+(p.x-screenOriginX)+'px;top:'+(p.y-screenOriginY)+'px;background-color:'+colors[p.color]+';"/>';
 	var tiles = '';
 	for(var i=0;i<currentLevel.tiles.length;++i){
@@ -42,7 +42,7 @@ function runGame(){
 		gameFrame++;
 		if (gameFrame == 30)
 			gameFrame = 0;
-		animationFrame = Math.floor(gameFrame / 2.5);
+		animationFrame = Math.floor(gameFrame / animationRatio);
 		
 		//Player variables
 		var p = currentLevel.player;
@@ -63,8 +63,7 @@ function runGame(){
 		//Display
 		$('#player').css({
 			left: (p.x-screenOriginX)+'px',
-			top: (p.y-screenOriginY)+'px',
-			'background-color': colors[p.color]
+			top: (p.y-screenOriginY)+'px'
 		});
 		$('#helmet').css({
 			left: (p.x-screenOriginX + helmOffset.x)+'px',
