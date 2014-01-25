@@ -34,8 +34,8 @@ levels[1]={
                 texture:'img/brick0.jpg'
         },{
                 type: platform,
-                x:640,
-                y:280,
+                x:1024,
+                y:80,
                 width:128,
                 height:20,
                 color:0,
