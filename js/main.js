@@ -63,7 +63,8 @@ function runGame(){
 			//alert('I can jump!');
 		}
 		var playerFrameInfo = getPlayerAnimationFrame(animationFrame, animationType);
-
+		//var playerFrameInfo = getPlayerAnimationFrame(0, animationType);
+		
 		//Process world
 		p.color = currentColor;
 		p.vel = addVectors(p.vel,gravity);
@@ -72,7 +73,8 @@ function runGame(){
 		//Display
 		$('#player').css({
 			left: (p.x-screenOriginX)+'px',
-			top: (p.y-screenOriginY)+'px'
+			top: (p.y-screenOriginY)+'px',
+			'background-position': playerFrameInfo.x + 'px ' + playerFrameInfo.y + 'px'
 		});
 		$('#helmet').css({
 			left: (p.x-screenOriginX + playerFrameInfo.xHelmet)+'px',

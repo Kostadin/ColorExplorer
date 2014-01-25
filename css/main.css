@@ -91,9 +91,10 @@
 
 #player{
 	position:absolute;
-	width:64px;
-	height:80px;
+	width:125px;
+	height:107px;
 	z-index: 2;
+	background-image: url(../img/sprite/sheet.png);
 }
 
 #helmet{
