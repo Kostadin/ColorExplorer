@@ -19,6 +19,7 @@ body{
 
 #mainMenu{
 	padding-top:150px;
+	z-index: 100;
 }
 
 #logo{
@@ -53,8 +54,19 @@ body{
 	width:64px;
 	height:80px;
 	background-color:white;
+	z-index: 2;
+}
+
+#helmet{
+	border-radius: 50%;
+	position:absolute;
+	width:90px;
+	height:90px;
+	background-color:white;
+	z-index: 1;
 }
 
 .tile{
 	position:absolute;
+	z-index: 2;
 }

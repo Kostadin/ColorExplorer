@@ -1,4 +1,4 @@
-var runGameHandle = null;
+﻿var runGameHandle = null;
 
 function setScreenOrigin(level){
 	var ox = screenOriginX;
@@ -25,12 +25,14 @@ function loadLevel(id){
 	setScreenOrigin(currentLevel);
 	$('#level').html('');
 	var player = '<div id="player" style="left:'+(p.x-screenOriginX)+'px;top:'+(p.y-screenOriginY)+'px;background-color:'+colors[p.color]+';"/>';
+	var helmet = '<div id="helmet" style="left:'+(p.x-screenOriginX)+'px;top:'+(p.y-screenOriginY)+'px;background-color:'+colors[p.color]+';"/>';
 	var tiles = '';
 	for(var i=0;i<currentLevel.tiles.length;++i){
 		var tile = currentLevel.tiles[i];
 		tiles += '<div id="tile_'+i+'" class="tile" style="left:'+(tile.x-screenOriginX)+'px;top:'+(tile.y-screenOriginY)+'px;width:'+tile.width+'px;height:'+tile.height+'px;background-color:'+colors[tile.color]+';'+(((p.color!=tile.color)||tileVisible(tile))?'display:none;':'')+'"/>';
 	}
 	$('#level').append(player);
+	$('#level').append(helmet);
 	$('#level').append(tiles);
 }
 
@@ -49,7 +51,8 @@ function runGame(){
 		//Display
 		$('#player').css({
 			left: (p.x-screenOriginX)+'px',
-			top: (p.y-screenOriginY)+'px'
+			top: (p.y-screenOriginY)+'px',
+			background-color: colors[p.color]
 		});
 		for(var i=0;i<currentLevel.tiles.length;++i){
 			var tile = currentLevel.tiles[i];
