@@ -405,7 +405,7 @@ levels[1]={
         },{
                 type: platform,
                 x:1664,
-                y:260,
+                y:300,
                 width:128,
                 height:20,
                 color:1,
