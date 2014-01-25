@@ -1,7 +1,6 @@
 levels[0]={
 	width:4096,
 	height:600,
-	startingColor:0,
 	player: {
 		x:0,
 		y:0,

@@ -1,5 +1,4 @@
-//Sounds objects
-//Example
+//Audio objects
 var backgroundTrack = new Audio("audio/Test.mp3");
 //Looping
 testTrack.addEventListener('ended', function() {
