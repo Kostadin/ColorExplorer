@@ -1,5 +1,6 @@
 body{
 	background-color:grey;
+	margin:0px;
 }
 
 #container{
@@ -13,6 +14,7 @@ body{
 	margin-left:auto;
 	margin-right:auto;
 	background-color:black;
+	overflow:none;
 }
 
 #mainMenu{
