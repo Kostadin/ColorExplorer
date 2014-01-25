@@ -35,7 +35,7 @@ function loadLevel(id){
 	for(var i=0;i<currentLevel.tiles.length;++i){
 		var tile = currentLevel.tiles[i];
 		if (tile.type==platform){
-			tiles += '<div id="tile_'+i+'" class="tile" style="left:'+(tile.x-screenOriginX)+'px;top:'+(tile.y-screenOriginY)+'px;width:'+tile.width+'px;height:'+tile.height+'px;background-color:'+colors[tile.color]+';'+(((p.color!=tile.color)||!tileVisible(tile))?'display:none;':'')+'"/>';
+			tiles += '<div id="tile_'+i+'" class="tile" style="left:'+(tile.x-screenOriginX+(-(platformWidth-tile.width)/2))+'px;top:'+(tile.y-screenOriginY+platformDivOffsetY)+'px;width:'+platformWidth+'px;height:'+platformHeight+'px;background-image:'+colorBackgrounds[tile.color]+';background-repeat:no-repeat;'+(((p.color!=tile.color)||!tileVisible(tile))?'display:none;':'')+'"/>';
 		} else {
 			tiles += '<div id="tile_'+i+'" class="tile portal" style="left:'+(tile.x-screenOriginX)+'px;top:'+(tile.y-screenOriginY-portalHeight)+'px;width:'+tile.width+'px;height:'+portalHeight+'px;background-color:white;'+((!tileVisible(tile))?'display:none;':'')+'"/>';
 		}
@@ -127,8 +127,8 @@ function runGame(){
 			var tile = currentLevel.tiles[i];
 			if (tile.type==platform){
 				$('#tile_'+i).css({
-					left: (tile.x-screenOriginX)+'px',
-					top: (tile.y-screenOriginY)+'px',
+					left: (tile.x-screenOriginX+(-(platformWidth-tile.width)/2))+'px',
+					top: (tile.y-screenOriginY+platformDivOffsetY)+'px',
 					display: (((tile.color==currentColor)&&(tileVisible(tile)))?'block':'none')
 				});
 			} else {

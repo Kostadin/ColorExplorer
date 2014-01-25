@@ -8,6 +8,7 @@ var levels = [];
 var currentLevel = null;
 var gameRunning = false;
 var colors=['red','yellow','green','blue'];
+var colorBackgrounds=["url('img/platforms/red.png')","url('img/platforms/yellow.png')","url('img/platforms/green.png')","url('img/platforms/blue.png')"];
 var currentColor = 0;
 var currentColorCSS = colors[currentColor];
 var muteSound = false;
@@ -20,6 +21,9 @@ var gameFrame = 0;
 var animationRatio = 3;
 //Brick types
 var platform = 0;
+var platformWidth = 134;
+var platformHeight = 54;
+var platformDivOffsetY = -10;
 var portal = 1;
 var portalHeight = 60;
 var leftPressed = false;
