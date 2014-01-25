@@ -29,7 +29,7 @@ function loadLevel(id){
 	p.win = false;
 	setScreenOrigin(currentLevel);
 	$('#level').html('');
-	var bgStuff = '<div id="bgStuff">';
+
 	var player = '<div id="player" style="left:'+(p.x-screenOriginX)+'px;top:'+(p.y-screenOriginY)+'px;"/>';
 	var helmet = '<div id="helmet" style="left:'+(p.x-screenOriginX)+'px;top:'+(p.y-screenOriginY)+'px;background-color:'+colors[p.color]+';"/>';
 	var tiles = '';
@@ -42,7 +42,6 @@ function loadLevel(id){
 		}
 	}
 
-	$('#level').append(bgStuff);
 	$('#level').append(player);
 	$('#level').append(helmet);
 	$('#level').append(tiles);
@@ -95,10 +94,8 @@ function runGame(){
 
 		setScreenOrigin(currentLevel);
 		
-		$('#bgStuff').css({
-			'background-position': (-screenOriginX / parallaxRatio) + 'px ' + '0px',
-			'transform-origin': '50% 50%',
-			transform: 'scaleX(1)'
+		$('#level').css({
+			'background-position': (-screenOriginX / parallaxRatio) + 'px ' + '0px , 0px 0px',
 		});
 			
 		//Display

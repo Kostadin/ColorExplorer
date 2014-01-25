@@ -32,7 +32,8 @@
 	top:0px;
 	width:1024px;
 	height:600px;
-	background-image: url("../img/bg/tile1.png");
+	background-image: url("../img/bg/rocks.png"), url("../img/bg/tile1.png");
+	background-repeat: repeat-x, no-repeat;
 }
 
 #bgStuff{
@@ -41,7 +42,7 @@
 	top:300px;
 	width:1024px;
 	height:300px;
-	background-image: url("../img/bg/bgstuff/rock1.png");
+	background-image: url("../img/bg/rocks.png");
 	background-repeat: repeat-x;
 	z-index:1;
 }
