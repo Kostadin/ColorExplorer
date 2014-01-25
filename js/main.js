@@ -23,6 +23,7 @@ function loadLevel(id){
 	currentLevel = jQuery.extend(true, {}, levels[id]);//Deep copy
 	var p = currentLevel.player;
 	currentColor = p.color;
+	changeHelmetColor();
 	p.vel = [0,0];
 	p.canJump = false;
 	p.dead = false;
@@ -110,7 +111,7 @@ function runGame(){
 			$('#player').css({
 				left: (p.x-screenOriginX+playerDivOffsetX)+'px',
 				top: (p.y-screenOriginY+playerDivOffsetY)+'px',
-				'background-position': playerFrameInfo.x + 'px ' + playerFrameInfo.y + 'px',
+				'background-position': playerFrameInfo.x + 'px ' + playerFrameInfo.y + 'px, ' + playerFrameInfo.xHelmet + 'px ' + playerFrameInfo.yHelmet + 'px',
 				'transform-origin': '50% 50%',
 				transform: 'scaleX(1)'
 			});
@@ -120,7 +121,7 @@ function runGame(){
 			$('#player').css({
 				left: (p.x-screenOriginX+playerDivOffsetX)+'px',
 				top: (p.y-screenOriginY+playerDivOffsetY)+'px',
-				'background-position': playerFrameInfo.x + 'px ' + playerFrameInfo.y + 'px',
+				'background-position': playerFrameInfo.x + 'px ' + playerFrameInfo.y + 'px, ' + playerFrameInfo.xHelmet + 'px ' + playerFrameInfo.yHelmet + 'px',
 				'transform-origin': '50% 50%',
 				transform: 'scaleX(-1)'
 			});
@@ -205,6 +206,12 @@ function startGame(){
 	}
 }
 
+function changeHelmetColor() {
+	$('#player').css({
+		'background-image': 'url("img/sprite/sheet.png"), url("img/sprite/'+colors[currentColor]+'/sheet.png")',
+	});
+}
+
 $(function(){
 	$('#btnPlay').click(startGame);
 	$('body').on('keydown',function(e){
@@ -213,6 +220,7 @@ $(function(){
 			if (code == 32) {
 				currentColor = (++currentColor)%colorCount;
 				currentColorCSS = colors[currentColor];
+				changeHelmetColor();
 			}
 		}
 		if (code == 37) {

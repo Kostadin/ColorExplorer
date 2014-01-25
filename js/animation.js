@@ -1,6 +1,12 @@
 function getSpriteCoords(name) {
 	var $st = $spriteXml.find('SubTexture[name="' + name + '"]');
-	return {x: -parseInt($st.attr('x')), y: -parseInt($st.attr('y'))};
+	var $ht = $helmetXml.find('SubTexture[name="' + name + '"]');
+	return {
+		x: -parseInt($st.attr('x')), 
+		y: -parseInt($st.attr('y')),
+		xHelmet: -parseInt($ht.attr('x')), 
+		yHelmet: -parseInt($ht.attr('y'))
+	};
 }
 
 function getPlayerAnimationFrame(frame, animation) {
@@ -11,17 +17,21 @@ function getPlayerAnimationFrame(frame, animation) {
 			var sprite = getSpriteCoords(playerRunAnimation[frame].name);
 			var info = {
 				x: sprite.x,
-				y: sprite.y
+				y: sprite.y,
+				xHelmet: sprite.xHelmet,
+				yHelmet: sprite.yHelmet
 				};
 			break;
 			}
 		case "idle": {
 			//4 frames
-			frame = frame % 4;
+			frame = frame % 8;
 			var sprite = getSpriteCoords(playerIdleAnimation[frame].name);
 			var info = {
 				x: sprite.x,
-				y: sprite.y
+				y: sprite.y,
+				xHelmet: sprite.xHelmet,
+				yHelmet: sprite.yHelmet
 				};
 			break;
 			}
@@ -30,7 +40,9 @@ function getPlayerAnimationFrame(frame, animation) {
 			var sprite = getSpriteCoords(playerJumpAnimation.name);
 			var info = {
 				x: sprite.x,
-				y: sprite.y
+				y: sprite.y,
+				xHelmet: sprite.xHelmet,
+				yHelmet: sprite.yHelmet
 				};
 			break;
 			}
@@ -40,14 +52,18 @@ function getPlayerAnimationFrame(frame, animation) {
 			var sprite = getSpriteCoords(playerFallAnimation[frame].name);
 			var info = {
 				x: sprite.x,
-				y: sprite.y
+				y: sprite.y,
+				xHelmet: sprite.xHelmet,
+				yHelmet: sprite.yHelmet
 				};
 			break;
 			}
 		default: {
 			var info = {
 				x: 0,
-				y: 0
+				y: 0,
+				xHelmet: 0,
+				yHelmet: 0
 				};
 			break;
 			}
