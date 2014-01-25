@@ -4,6 +4,8 @@ levels[0]={
 	player: {
 		x:0,
 		y:0,
+		width:64,
+		height:80,
 		color:0
 	},
 	tiles:[{
