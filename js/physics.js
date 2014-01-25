@@ -123,6 +123,17 @@ function runPhysics(){
 					}
 				}
 			}
+			for (var i=0;i<currentLevel.enemies.length;++i){
+				var enemy = currentLevel.enemies[i];
+				if (collision({x:currPos[0],y:currPos[1],width:p.width,height:p.height},enemy)){
+					p.dead = true;
+					stepVel = [0,0];
+					currVel = [0,0];
+					hTouch = true;
+					vTouch = true;
+					break;
+				}
+			}
 		}
 		p.x = currPos[0];
 		p.y = currPos[1];

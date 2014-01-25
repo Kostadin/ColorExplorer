@@ -47,6 +47,7 @@ function loadLevel(id){
 	}
 	for (var i=0;i<currentLevel.enemies.length;++i){
 		var enemy = currentLevel.enemies[i];
+		enemy.vel = [0,0];
 		enemies += '<div id="enemy_'+i+'" class="enemy" style="left:'+enemy.x+'px;top:'+enemy.y+'px;background-color:'+colors[enemy.color]+'"></div>';
 	}
 	$('#level').append(player);
@@ -165,7 +166,7 @@ function runGame(){
 					loadLevel(currentLevelIndex);
 				}
 				deadAnimationHandle = null;
-			},1000);
+			},deathDelayMS);
 		} else if ((!p.dead)&&(p.win)&&(winAnimationHandle == null)){
 			winAnimationHandle = setTimeout(function(){
 				if (currentLevelIndex<levels.length-1){
@@ -181,7 +182,7 @@ function runGame(){
 					$('#level').hide();
 					$('#mainMenu').show();
 				}
-			},1000);
+			},winDelayMS);
 		}
 	}else{	
 		clearInterval(runGameHandle);
