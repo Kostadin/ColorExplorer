@@ -33,7 +33,11 @@ function loadLevel(id){
 	var tiles = '';
 	for(var i=0;i<currentLevel.tiles.length;++i){
 		var tile = currentLevel.tiles[i];
-		tiles += '<div id="tile_'+i+'" class="tile" style="left:'+(tile.x-screenOriginX)+'px;top:'+(tile.y-screenOriginY)+'px;width:'+tile.width+'px;height:'+tile.height+'px;background-color:'+colors[tile.color]+';'+(((p.color!=tile.color)||tileVisible(tile))?'display:none;':'')+'"/>';
+		if (tile.type==platform){
+			tiles += '<div id="tile_'+i+'" class="tile" style="left:'+(tile.x-screenOriginX)+'px;top:'+(tile.y-screenOriginY)+'px;width:'+tile.width+'px;height:'+tile.height+'px;background-color:'+colors[tile.color]+';'+(((p.color!=tile.color)||!tileVisible(tile))?'display:none;':'')+'"/>';
+		} else {
+			tiles += '<div id="tile_'+i+'" class="tile portal" style="left:'+(tile.x-screenOriginX)+'px;top:'+(tile.y-screenOriginY-portalHeight)+'px;width:'+tile.width+'px;height:'+portalHeight+'px;background-color:white;'+((!tileVisible(tile))?'display:none;':'')+'"/>';
+		}
 	}
 	$('#level').append(player);
 	$('#level').append(helmet);
@@ -113,11 +117,19 @@ function runGame(){
 			});
 		for(var i=0;i<currentLevel.tiles.length;++i){
 			var tile = currentLevel.tiles[i];
-			$('#tile_'+i).css({
-				left: (tile.x-screenOriginX)+'px',
-				top: (tile.y-screenOriginY)+'px',
-				display: (((tile.color==currentColor)&&(tileVisible(tile)))?'block':'none')
-			});
+			if (tile.type==platform){
+				$('#tile_'+i).css({
+					left: (tile.x-screenOriginX)+'px',
+					top: (tile.y-screenOriginY)+'px',
+					display: (((tile.color==currentColor)&&(tileVisible(tile)))?'block':'none')
+				});
+			} else {
+				$('#tile_'+i).css({
+					left: (tile.x-screenOriginX)+'px',
+					top: (tile.y-screenOriginY-portalHeight)+'px',
+					display: ((tileVisible(tile))?'block':'none')
+				});
+			}
 		}
 		//Debug
 		$('#debug').html('<p>'+Math.round(p.x)+', '+Math.round(p.y)+'</p>');

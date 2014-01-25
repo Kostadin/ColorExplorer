@@ -1,6 +1,6 @@
 function getSpriteCoords(name) {
 	var $st = $spriteXml.find('SubTexture[name="' + name + '"]');
-	return {x: "-" + $st.attr('x'), y: "-" + $st.attr('y')};
+	return {x: -parseInt($st.attr('x')), y: -parseInt($st.attr('y'))};
 }
 
 function getPlayerAnimationFrame(frame, animation) {

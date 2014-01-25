@@ -48,6 +48,14 @@
 		height:20,
 		color:0,
 		texture:'img/brick0.jpg'
+	},{
+		type: portal,
+		x: 512,
+		y: 499,
+		width: 128,
+		height: 2,
+		color:0,
+		texture:'img/exit.png'
 	}],
 	enemies: [{
 		x:40,

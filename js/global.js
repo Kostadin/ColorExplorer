@@ -21,6 +21,7 @@ var animationRatio = 3;
 //Brick types
 var platform = 0;
 var portal = 1;
+var portalHeight = 80;
 var leftPressed = false;
 var rightPressed = false;
 var upPressed = false;
