@@ -106,7 +106,7 @@
 	position:absolute;
 	width:125px;
 	height:107px;
-	z-index: 4;
+	z-index: 5;
 	background-image: url("../img/sprite/sheet.png");
 }
 
@@ -116,7 +116,7 @@
 	width:30px;
 	height:30px;
 	background-color:white;
-	z-index: 3;
+	z-index: 4;
 }
 
 .tile, .portal{
@@ -127,4 +127,11 @@
 .portal {
 	background-image: url("../img/bg/bunker.png");
 	background-repeat: no-repeat;
+}
+
+.enemy{
+	position: absolute;
+	z-index: 3;
+	width:50px;
+	height:50px;
 }

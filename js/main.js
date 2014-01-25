@@ -11,8 +11,8 @@ function setScreenOrigin(level){
 }
 
 function tileVisible(tile){
-	if (((screenOriginX<=tile.x)&&(tile.x<screenOriginX+screenWidth))||((screenOriginX<=tile.x+tile.width)&&(tile.x+tile.width<screenOriginX+screenWidth))||
-		((screenOriginY<=tile.y)&&(tile.y<screenOriginY+screenHeight))||((screenOriginY<=tile.y+tile.height)&&(tile.y+tile.height<screenOriginY+screenHeight)))
+	if ((((screenOriginX<=tile.x)&&(tile.x<screenOriginX+screenWidth))||((screenOriginX<=tile.x+tile.width)&&(tile.x+tile.width<screenOriginX+screenWidth)))&&
+		(((screenOriginY<=tile.y)&&(tile.y<screenOriginY+screenHeight))||((screenOriginY<=tile.y+tile.height)&&(tile.y+tile.height<screenOriginY+screenHeight))))
 		return true;
 	else
 		return false;
@@ -27,12 +27,16 @@ function loadLevel(id){
 	p.canJump = false;
 	p.dead = false;
 	p.win = false;
+	if (currentLevel.enemies==undefined){
+		currentLevel.enemies=[];
+	}
 	setScreenOrigin(currentLevel);
 	$('#level').html('');
 
 	var player = '<div id="player" style="left:'+(p.x-screenOriginX)+'px;top:'+(p.y-screenOriginY)+'px;"/>';
 	var helmet = '<div id="helmet" style="left:'+(p.x-screenOriginX)+'px;top:'+(p.y-screenOriginY)+'px;background-color:'+colors[p.color]+';"/>';
 	var tiles = '';
+	var enemies = '';
 	for(var i=0;i<currentLevel.tiles.length;++i){
 		var tile = currentLevel.tiles[i];
 		if (tile.type==platform){
@@ -41,10 +45,14 @@ function loadLevel(id){
 			tiles += '<div id="tile_'+i+'" class="tile portal" style="left:'+(tile.x-screenOriginX+(-(portalWidth-tile.width)/2))+'px;top:'+(tile.y-screenOriginY-portalHeight)+'px;width:'+portalWidth+'px;height:'+portalHeight+'px;'+((!tileVisible(tile))?'display:none;':'')+'"/>';
 		}
 	}
-
+	for (var i=0;i<currentLevel.enemies.length;++i){
+		var enemy = currentLevel.enemies[i];
+		enemies += '<div id="enemy_'+i+'" class="enemy" style="left:'+enemy.x+'px;top:'+enemy.y+'px;background-color:'+colors[enemy.color]+'"></div>';
+	}
 	$('#level').append(player);
 	$('#level').append(helmet);
 	$('#level').append(tiles);
+	$('#level').append(enemies);
 	$('#level').css({
 		display: 'block'
 	});
