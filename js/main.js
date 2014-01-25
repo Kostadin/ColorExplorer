@@ -214,6 +214,7 @@ $(function(){
 		if (e.which == 77 || e.which == 109) {
 			muteSound = !muteSound;
 			backgroundTrack.muted = muteSound;
+			wilhelm.muted = muteSound;
 		}
 	});
 	$('body').on('keyup',function(e){
