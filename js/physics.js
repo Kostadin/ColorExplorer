@@ -63,6 +63,7 @@ function runPhysics(){
 			p.dead = true;
 			currVel[1] = 0;
 			vTouch = true;
+			break;
 		} else {
 			if (currPos[0]<0){
 				currPos[0] = 0;
@@ -106,6 +107,13 @@ function runPhysics(){
 						stepVel[1] = 0;
 						p.vel[1] = 0;
 						p.canJump = true;
+					}
+				} else { // Portal
+					if (collision({x:currPos[0],y:currPos[1],width:p.width,height:p.height},tile)){
+						stepVel[0] = 0;
+						stepVel[1] = 0;
+						p.win = true;
+						break;
 					}
 				}
 			}

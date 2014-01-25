@@ -19,13 +19,14 @@ function tileVisible(tile){
 }
 
 function loadLevel(id){
-	currentLevelIndex = 0;
+	currentLevelIndex = id;
 	currentLevel = jQuery.extend(true, {}, levels[id]);//Deep copy
 	var p = currentLevel.player;
 	currentColor = p.color;
 	p.vel = [0,0];
 	p.canJump = false;
 	p.dead = false;
+	p.win = false;
 	setScreenOrigin(currentLevel);
 	$('#level').html('');
 	var player = '<div id="player" style="left:'+(p.x-screenOriginX)+'px;top:'+(p.y-screenOriginY)+'px;"/>';
@@ -140,7 +141,8 @@ function runGame(){
 		}
 		//Debug
 		$('#debug').html('<p>'+Math.round(p.x)+', '+Math.round(p.y)+'</p>');
-		if ((p.dead)&&(deadAnimationHandle == null)){
+		//End determination
+		if ((!p.win)&&(p.dead)&&(deadAnimationHandle == null)){
 			deadAnimationHandle = setTimeout(function(){
 				++currentTry;
 				if (currentTry>=maxTries) {
@@ -155,6 +157,22 @@ function runGame(){
 					loadLevel(currentLevelIndex);
 				}
 				deadAnimationHandle = null;
+			},1000);
+		} else if ((!p.dead)&&(p.win)&&(winAnimationHandle == null)){
+			winAnimationHandle = setTimeout(function(){
+				if (currentLevelIndex<levels.length-1){
+					++currentLevelIndex;
+					winAnimationHandle = null;
+					loadLevel(currentLevelIndex);
+				} else {
+					gameRunning = false;
+					clearInterval(runGameHandle);
+					runGameInterval = null;
+					alert('You win.');
+					currentTry = 0;
+					$('#level').hide();
+					$('#mainMenu').show();
+				}
 			},1000);
 		}
 	}else{	

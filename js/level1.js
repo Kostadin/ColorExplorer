@@ -4,6 +4,8 @@ levels[1]={
         player: {
                 x:0,
                 y:0,
+                width:64,
+                height:80,
                 color:0
         },
         tiles:[
@@ -99,7 +101,7 @@ levels[1]={
         },{
                 type: platform,
                 x:3072,
-                y:60,
+                y:30,
                 width:128,
                 height:20,
                 color:0,
@@ -927,7 +929,7 @@ levels[1]={
         },{
                 type: platform,
                 x:7878,
-                y:100,
+                y:60,
                 width:128,
                 height:20,
                 color:2,
