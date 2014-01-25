@@ -52,7 +52,7 @@ function runGame(){
 		$('#player').css({
 			left: (p.x-screenOriginX)+'px',
 			top: (p.y-screenOriginY)+'px',
-			background-color: colors[p.color]
+			'background-color': colors[p.color]
 		});
 		for(var i=0;i<currentLevel.tiles.length;++i){
 			var tile = currentLevel.tiles[i];
