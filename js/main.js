@@ -90,6 +90,13 @@ function runGame(){
 		//var playerFrameInfo = getPlayerAnimationFrame(0, animationType);
 
 		setScreenOrigin(currentLevel);
+		
+		$('#level').css({
+			'background-position': -screenOriginX + 'px ' + '0px',
+			'transform-origin': '50% 50%',
+			transform: 'scaleX(1)'
+		});
+			
 		//Display
 		if (playerFacing == "right") {
 			$('#player').css({
