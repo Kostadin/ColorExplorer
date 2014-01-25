@@ -5,6 +5,7 @@ var currentLevel = null;
 var gameRunning = false;
 var colors=['red','yellow','green','blue'];
 var currentColor = colors[0];
+var playSound = true;
 //Brick types
 var platform = 0;
 var portal = 1;

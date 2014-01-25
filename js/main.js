@@ -26,6 +26,12 @@ function runGame(){
 	}
 }
 
+function toggleSound(){
+debugger;
+	playSound = !playSound;
+	backgroundTrack.muted = playSound;
+}
+
 $(function(){
 	$('#btnPlay').click(function(){
 		if (!gameRunning){
@@ -33,9 +39,12 @@ $(function(){
 			$('#mainMenu').hide();
 			gameRunning = true;
 			runGameHandle = setInterval(runGame,1000/fps);
+			backgroundTrack.play();
 		}
 	});
 	$('body').on('keypress',function(evt){
-		
+		if (evt.which == 77 || evt.which == 109) {
+			toggleSound();
+		}
 	});
 });
