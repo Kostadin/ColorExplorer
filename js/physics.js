@@ -7,6 +7,7 @@ var maxSideSpeed = maxSideSpeedPerSec/fps;
 var maxJumpSpeedPerSec = -1000;
 var maxJumpSpeed = maxJumpSpeedPerSec/fps;
 var initialJumpSpeed = -1000/fps;
+var maxEnemySpeed = maxSideSpeedPerSec/fps;
 
 function addVectors(a,b){
 	return [a[0]+b[0],a[1]+b[1]]
@@ -40,6 +41,29 @@ function runPhysics(){
 		p.vel[1] = maxDropSpeed;
 	} else if (p.vel[1]<maxJumpSpeed){
 		p.vel[1] = maxJumpSpeed;
+	}
+	//Accelerate same colored enemies
+	for (var i=0;i<currentLevel.enemies.length;++i){
+		var enemy = currentLevel.enemies[i];
+		if (enemy.color==p.color){
+			var ev = [p.x-enemy.x, p.y-enemy.y];
+			var evVectorLength = Math.sqrt(ev[0]*ev[0]+ev[1]*ev[1]);
+			if (evVectorLength > 0.01){
+				var evCappedVectorLength = Math.min(maxEnemySpeed,evVectorLength);
+				var proportion = evCappedVectorLength/evVectorLength
+				ev[0] *= proportion;
+				ev[1] *= proportion;
+				enemy.vel = ev;
+			} else {
+				enemy.vel[0] = 0;
+				enemy.vel[1] = 1;
+			}
+			enemy.x += enemy.vel[0];
+			enemy.y += enemy.vel[1];
+		} else {
+			enemy.vel[0] = 0;
+			enemy.vel[1] = 0;
+		}
 	}
 	var startVel = [p.vel[0],p.vel[1]];
 	var startPos = {
@@ -125,10 +149,12 @@ function runPhysics(){
 			}
 			for (var i=0;i<currentLevel.enemies.length;++i){
 				var enemy = currentLevel.enemies[i];
-				if (collision({x:currPos[0],y:currPos[1],width:p.width,height:p.height},enemy)){
+				if ((enemy.color==p.color)&&collision({x:currPos[0],y:currPos[1],width:p.width,height:p.height},enemy)){
 					p.dead = true;
-					stepVel = [0,0];
-					currVel = [0,0];
+					stepVel[0] = 0;
+					stepVel[1] = 0;
+					currVel[0] = 0;
+					currVel[1] = 0;
 					hTouch = true;
 					vTouch = true;
 					break;

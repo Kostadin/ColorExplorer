@@ -148,6 +148,15 @@ function runGame(){
 				});
 			}
 		}
+		for (var i=0;i<currentLevel.enemies.length;++i){
+			var enemy = currentLevel.enemies[i];
+			enemy.vel = [0,0];
+			$('#enemy_'+i).css({
+					left: (enemy.x-screenOriginX)+'px',
+					top: (enemy.y-screenOriginY)+'px',
+					display: (((enemy.color==currentColor)&&(tileVisible(enemy)))?'block':'none')
+				});
+		}
 		//Debug
 		$('#debug').html('<p>'+Math.round(p.x)+', '+Math.round(p.y)+'</p>');
 		//End determination
