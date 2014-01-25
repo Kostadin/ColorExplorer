@@ -2,9 +2,10 @@ var runGameHandle = null;
 
 function loadLevel(id){
 	currentLevel = jQuery.extend(true, {}, levels[0]);//Deep copy
-	currentColor = colors[currentLevel.startingColor];
-	$('#level').html('');
 	var p = currentLevel.player;
+	currentColor = p.color;
+	$('#level').html('');
+	
 	var player = '<div id="player" style="left:'+p.x+'px;top:'+p.y+'px;background-color:'+colors[p.color]+';"/>';
 	var tiles = '';
 	for(var i=0;i<currentLevel.tiles.length;++i){
@@ -19,7 +20,21 @@ function runGame(){
 	if(gameRunning){
 		//Read player input
 		//Process world
+		var p = currentLevel.player;
+		p.color = currentColor;
 		//Display
+		$('#player').css({
+			left: p.x,
+			top: p.y
+		});
+		for(var i=0;i<currentLevel.tiles.length;++i){
+			var tile = currentLevel.tiles[i];
+			$('#tile_'+i).css({
+				left: tile.x+'px',
+				top: tile.y+'px',
+				display: ((tile.color==currentColor)?'block':'none')
+			});
+		}
 	}else{	
 		clearInterval(runGameHandle);
 		runGameInterval = null;
@@ -35,7 +50,11 @@ $(function(){
 			runGameHandle = setInterval(runGame,1000/fps);
 		}
 	});
-	$('body').on('keypress',function(evt){
-		
+	$('body').on('keydown',function(e){
+		var code = e.keyCode;
+		if(code == 32) {
+			currentColor = (++currentColor)%colorCount;
+			currentColorCSS = colors[currentColor];
+		}
 	});
 });

@@ -4,7 +4,8 @@ var levels = [];
 var currentLevel = null;
 var gameRunning = false;
 var colors=['red','yellow','green','blue'];
-var currentColor = colors[0];
+var currentColor = 0;
+var currentColorCSS = colors[currentColor];
 //Brick types
 var platform = 0;
 var portal = 1;
