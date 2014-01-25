@@ -26,7 +26,7 @@ function loadLevel(id){
 	p.canJump = false;
 	setScreenOrigin(currentLevel);
 	$('#level').html('');
-	var player = '<div id="player" style="left:'+(p.x-screenOriginX)+'px;top:'+(p.y-screenOriginY)+'px;background-color:'+colors[p.color]+';"/>';
+	var player = '<div id="player" style="left:'+(p.x-screenOriginX)+'px;top:'+(p.y-screenOriginY)+'px;"/>';
 	var helmet = '<div id="helmet" style="left:'+(p.x-screenOriginX)+'px;top:'+(p.y-screenOriginY)+'px;background-color:'+colors[p.color]+';"/>';
 	var tiles = '';
 	for(var i=0;i<currentLevel.tiles.length;++i){
@@ -40,12 +40,21 @@ function loadLevel(id){
 
 function runGame(){
 	if(gameRunning){
+		//Count frames
+		gameFrame++;
+
+		animationFrame = Math.floor(gameFrame / animationRatio);
+		
+		//Player variables
 		var p = currentLevel.player;
+		var animationType = "idle";
 		//Read player input
 		if (rightPressed){
 			p.vel[0] += maxSideSpeed;
+			animationType = "run";
 		} else if (leftPressed){
 			p.vel[0] -= maxSideSpeed;
+			animationType = "run";
 		} else {
 			p.vel[0] = 0;
 		}
@@ -53,6 +62,8 @@ function runGame(){
 			p.vel[1] += initialJumpSpeed;
 			alert('I can jump!');
 		}
+		var playerFrameInfo = getPlayerAnimationFrame(animationFrame, animationType);
+
 		//Process world
 		p.color = currentColor;
 		p.vel = addVectors(p.vel,gravity);
@@ -61,12 +72,11 @@ function runGame(){
 		//Display
 		$('#player').css({
 			left: (p.x-screenOriginX)+'px',
-			top: (p.y-screenOriginY)+'px',
-			'background-color': colors[p.color]
+			top: (p.y-screenOriginY)+'px'
 		});
 		$('#helmet').css({
-			left: (p.x-screenOriginX)+'px',
-			top: (p.y-screenOriginY)+'px',
+			left: (p.x-screenOriginX + playerFrameInfo.x)+'px',
+			top: (p.y-screenOriginY + playerFrameInfo.y)+'px',
 			'background-color': colors[p.color]
 		});
 		for(var i=0;i<currentLevel.tiles.length;++i){

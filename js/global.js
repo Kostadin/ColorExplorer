@@ -11,6 +11,10 @@ var colors=['red','yellow','green','blue'];
 var currentColor = 0;
 var currentColorCSS = colors[currentColor];
 var muteSound = false;
+//Animation counter
+var animationFrame = 0;
+var gameFrame = 0;
+var animationRatio = 3;
 //Brick types
 var platform = 0;
 var portal = 1;

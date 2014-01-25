@@ -93,15 +93,14 @@
 	position:absolute;
 	width:64px;
 	height:80px;
-	background-color:white;
 	z-index: 2;
 }
 
 #helmet{
 	border-radius: 50%;
 	position:absolute;
-	width:90px;
-	height:90px;
+	width:30px;
+	height:30px;
 	background-color:white;
 	z-index: 1;
 }

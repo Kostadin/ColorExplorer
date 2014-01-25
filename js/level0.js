@@ -48,5 +48,26 @@
 		height:20,
 		color:0,
 		texture:'img/brick0.jpg'
+	}],
+	enemies: [{
+		x:40,
+		y:500,
+		color:0
+	},{
+		x:90,
+		y:200,
+		color:2
+	},{
+		x:100,
+		y:300,
+		color:2
+	},{
+		x:600,
+		y:400,
+		color:3
+	},{
+		x:400,
+		y:50,
+		color:1
 	}]
 };
