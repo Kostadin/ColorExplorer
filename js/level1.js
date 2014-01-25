@@ -34,8 +34,8 @@ levels[1]={
                 texture:'img/brick0.jpg'
         },{
                 type: platform,
-                x:640,
-                y:280,
+                x:1024,
+                y:80,
                 width:128,
                 height:20,
                 color:0,
@@ -405,7 +405,7 @@ levels[1]={
         },{
                 type: platform,
                 x:1664,
-                y:260,
+                y:300,
                 width:128,
                 height:20,
                 color:1,
@@ -926,6 +926,14 @@ levels[1]={
                 texture:'img/brick0.jpg'
         },{
                 type: platform,
+                x:7878,
+                y:100,
+                width:128,
+                height:20,
+                color:2,
+                texture:'img/brick0.jpg'
+        },{
+                type: platform,
                 x:9600,
                 y:0,
                 width:128,
@@ -1314,6 +1322,14 @@ levels[1]={
                 type: platform,
                 x:256,
                 y:560,
+                width:128,
+                height:20,
+                color:3,
+                texture:'img/brick0.jpg'
+        },{
+                type: platform,
+                x:512,
+                y:140,
                 width:128,
                 height:20,
                 color:3,

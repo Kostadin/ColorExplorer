@@ -88,22 +88,26 @@ function runGame(){
 				display: (((tile.color==currentColor)&&(tileVisible(tile)))?'block':'none')
 			});
 		}
+		//Debug
+		$('#debug').html('<p>'+Math.round(p.x)+', '+Math.round(p.y)+'</p>');
 	}else{	
 		clearInterval(runGameHandle);
 		runGameInterval = null;
 	}
 }
 
+function startGame(){
+	if (!gameRunning){
+		loadLevel(1);
+		$('#mainMenu').hide();
+		gameRunning = true;
+		runGameHandle = setInterval(runGame,1000/fps);
+		//backgroundTrack.play();
+	}
+}
+
 $(function(){
-	$('#btnPlay').click(function(){
-		if (!gameRunning){
-			loadLevel(0);
-			$('#mainMenu').hide();
-			gameRunning = true;
-			runGameHandle = setInterval(runGame,1000/fps);
-			//backgroundTrack.play();
-		}
-	});
+	$('#btnPlay').click(startGame);
 	$('body').on('keydown',function(e){
 		var code = e.keyCode;
 		if (gameRunning){
@@ -133,6 +137,8 @@ $(function(){
 			upPressed = false;
 		} else if (code == 39) {
 			rightPressed = false;
+		} else if (code == 13) {
+			startGame();
 		}
 	});
 });
