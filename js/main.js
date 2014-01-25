@@ -38,13 +38,25 @@ function loadLevel(id){
 
 function runGame(){
 	if(gameRunning){
+		//Count frames
+		gameFrame++;
+		if (gameFrame == 30)
+			gameFrame = 0;
+		animationFrame = Math.floor(gameFrame / 2.5);
+		
+		//Player variables
 		var p = currentLevel.player;
+		var animationType = "idle";
 		//Read player input
 		if (rightPressed){
 			p.x += 10;
+			animationType = "run";
 		} else if (leftPressed){
 			p.x -= 10;
+			animationType = "run";
 		}
+		var helmOffset = helmetOffset(animationFrame, animationType);
+
 		//Process world
 		p.color = currentColor;
 		setScreenOrigin(currentLevel);
@@ -55,8 +67,8 @@ function runGame(){
 			'background-color': colors[p.color]
 		});
 		$('#helmet').css({
-			left: (p.x-screenOriginX)+'px',
-			top: (p.y-screenOriginY)+'px',
+			left: (p.x-screenOriginX + helmOffset.x)+'px',
+			top: (p.y-screenOriginY + helmOffset.y)+'px',
 			'background-color': colors[p.color]
 		});
 		for(var i=0;i<currentLevel.tiles.length;++i){
