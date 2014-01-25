@@ -41,7 +41,7 @@
 		color:3,
 		texture:'img/brick0.jpg'
 	},{
-		type: portal,
+		type: platform,
 		x:512,
 		y:500,
 		width:128,

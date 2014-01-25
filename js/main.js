@@ -22,6 +22,8 @@ function loadLevel(id){
 	currentLevel = jQuery.extend(true, {}, levels[0]);//Deep copy
 	var p = currentLevel.player;
 	currentColor = p.color;
+	p.vel = [0,0];
+	p.canJump = false;
 	setScreenOrigin(currentLevel);
 	$('#level').html('');
 	var player = '<div id="player" style="left:'+(p.x-screenOriginX)+'px;top:'+(p.y-screenOriginY)+'px;background-color:'+colors[p.color]+';"/>';
@@ -41,12 +43,20 @@ function runGame(){
 		var p = currentLevel.player;
 		//Read player input
 		if (rightPressed){
-			p.x += 10;
+			p.vel[0] += maxSideSpeed;
 		} else if (leftPressed){
-			p.x -= 10;
+			p.vel[0] -= maxSideSpeed;
+		} else {
+			p.vel[0] = 0;
+		}
+		if ((upPressed)&&(p.canJump)){
+			p.vel[1] += initialJumpSpeed;
+			alert('I can jump!');
 		}
 		//Process world
 		p.color = currentColor;
+		p.vel = addVectors(p.vel,gravity);
+		runPhysics();
 		setScreenOrigin(currentLevel);
 		//Display
 		$('#player').css({

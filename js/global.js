@@ -16,3 +16,4 @@ var platform = 0;
 var portal = 1;
 var leftPressed = false;
 var rightPressed = false;
+var upPressed = false;
