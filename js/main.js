@@ -253,7 +253,7 @@ function runGame(){
 }
 
 function startGame(){
-	if (!gameRunning){		
+	if (!gameRunning){
 		currentTry = 0;
 		currentLevelIndex = 0;
 		$('#levelNumber').html(currentLevelIndex+1);
