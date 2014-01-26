@@ -268,16 +268,43 @@ function startGame(){
 	}
 }
 
+function shuffle(array) {
+	var currentIndex = array.length
+	var temporaryValue;
+	var randomIndex;
+
+	// While there remain elements to shuffle...
+	while (0 !== currentIndex) {
+		// Pick a remaining element...
+		randomIndex = Math.floor(Math.random() * currentIndex);
+		currentIndex -= 1;
+
+		// And swap it with the current element.
+		temporaryValue = array[currentIndex];
+		array[currentIndex] = array[randomIndex];
+		array[randomIndex] = temporaryValue;
+	}
+
+	return array;
+}
+
 $(function(){
+	var credits = ['Kostadin Vodenicharov - Dev', 'Neven Iliev - Dev', 'Todor Imreorov -  Art and Animation' , 'Ilko Birov - Music', 'Jordan Panov - Concept and Level Design'];
+	shuffle(credits);
+	for (var i=0;i<credits.length;++i){
+		$('#creditsNames').append('<p>'+credits[i]+'</p>');
+	}
 	$('#btnPlay').click(startGame);
+	$('#credits').click(function(){
+		$('#credits').hide();
+		$('#mainMenu').show();
+	});
+	$('#btnCredits').click(function(){
+		$('#mainMenu').hide();
+		$('#credits').show();
+	});
 	$('body').on('keydown',function(e){
 		var code = e.keyCode;
-		if (gameRunning){
-			if (code == 32) {
-				currentColor = (++currentColor)%colorCount;
-				currentColorCSS = colors[currentColor];
-			}
-		}
 		if (code == 37) {
 			leftPressed = true;
 		} else if (code == 38) {
@@ -294,6 +321,12 @@ $(function(){
 	});
 	$('body').on('keyup',function(e){
 		var code = e.keyCode;
+		if (gameRunning){
+			if (code == 32) {
+				currentColor = (++currentColor)%colorCount;
+				currentColorCSS = colors[currentColor];
+			}
+		}
 		if (code == 37) {
 			leftPressed = false;
 		} else if (code == 38) {
@@ -304,5 +337,4 @@ $(function(){
 			startGame();
 		}
 	});
-
 });

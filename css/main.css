@@ -39,6 +39,20 @@ body{
 	height:600px;
 }
 
+#creditsTitle{
+	font-size:80px;
+	color:white;
+	text-align:center;
+	line-height:100px;
+}
+
+#creditsNames p{
+	font-size:40px;
+	color:white;
+	text-align:center;
+	line-height:50px;
+}
+
 #transition{
 	font-size:100px;
 	color:white;
@@ -134,6 +148,24 @@ body{
 #btnPlay:hover{
 	color:white;
 	border:1px solid white;
+}
+
+#btnCredits{
+	margin-top:50px;
+	margin-left:auto;
+	margin-right:auto;
+	width:200px;
+	height:80px;
+	text-align:center;
+	cursor:pointer;
+	font-size:50px;
+	color:rgb(230,230,230);
+	line-height:80px;
+}
+
+#btnCredits:hover{
+	color:white;
+	text-shadow:0px 0px 25px rgb(51,255,0);
 }
 
 #player{
