@@ -2,8 +2,8 @@ levels[3]={
         width:15488,
         height:600,
         player: {
-                x:0,
-                y:0,
+                x:260,
+                y:220,
                 width:48,
                 height:80,
                 color:0
@@ -334,8 +334,8 @@ levels[3]={
                 texture:'img/brick0.jpg'
         },{
                 type: platform,
-                x:0,
-                y:100,
+                x:2304,
+                y:440,
                 width:128,
                 height:18,
                 color:1,
@@ -448,6 +448,14 @@ levels[3]={
                 type: platform,
                 x:12416,
                 y:100,
+                width:128,
+                height:18,
+                color:1,
+                texture:'img/brick0.jpg'
+        },{
+                type: platform,
+                x:12160,
+                y:120,
                 width:128,
                 height:18,
                 color:1,
@@ -576,6 +584,14 @@ levels[3]={
                 texture:'img/brick0.jpg'
         },{
                 type: platform,
+                x:8576,
+                y:420,
+                width:128,
+                height:18,
+                color:2,
+                texture:'img/brick0.jpg'
+        },{
+                type: platform,
                 x:6656,
                 y:560,
                 width:128,
@@ -648,6 +664,14 @@ levels[3]={
                 texture:'img/brick0.jpg'
         },{
                 type: platform,
+                x:11520,
+                y:420,
+                width:128,
+                height:18,
+                color:2,
+                texture:'img/brick0.jpg'
+        },{
+                type: platform,
                 x:11392,
                 y:540,
                 width:128,
@@ -658,6 +682,14 @@ levels[3]={
                 type: platform,
                 x:12032,
                 y:120,
+                width:128,
+                height:18,
+                color:2,
+                texture:'img/brick0.jpg'
+        },{
+                type: platform,
+                x:12672,
+                y:100,
                 width:128,
                 height:18,
                 color:2,
@@ -747,7 +779,7 @@ levels[3]={
         },{
                 type: platform,
                 x:2048,
-                y:240,
+                y:280,
                 width:128,
                 height:18,
                 color:3,
@@ -779,12 +811,21 @@ levels[3]={
         },{
                 type: platform,
                 x:3584,
-                y:400,
+                y:440,
                 width:128,
                 height:18,
                 color:3,
                 texture:'img/brick0.jpg'
         },{
+                type: platform,
+                x:3712,
+                y:400,
+                width:128,
+                height:18,
+                color:3,
+                texture:'img/brick0.jpg'
+        },
+		{
                 type: platform,
                 x:3840,
                 y:360,
@@ -1004,5 +1045,5 @@ levels[3]={
 			width: 50,
 			height: 50,
 			color:3
-		}]
+		}] 
 		}
