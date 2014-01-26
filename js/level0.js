@@ -4,7 +4,7 @@
 	player: {
 		x:0,
 		y:-10,
-		width:64,
+		width:48,
 		height:80,
 		color:0
 	},
