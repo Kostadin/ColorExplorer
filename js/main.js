@@ -141,6 +141,25 @@ function runGame(){
 					top: (tile.y-screenOriginY+platformDivOffsetY)+'px',
 					display: (((tile.color==currentColor)&&(tileVisible(tile)))?'block':'none')
 				});
+				/*
+				var op = parseFloat($('#tile_'+i).css('opacity'));
+				var orig = op;
+				if (p.color==tile.color){
+					op = Math.min(1,op+opacityTransitionPerFrame);
+				} else {
+					if (p.color==((tile.color+1)%colorCount)){
+						op = Math.max(0,op-opacityTransitionPerFrame);
+					} else {
+						op = 0;
+						$('#tile_'+i).css({
+							display: 'none'
+						});
+					}
+				}
+				if (orig!=op){
+					$('#tile_'+i).css('opacity',op);
+				}
+				*/
 			} else {
 				$('#tile_'+i).css({
 					left: (tile.x-screenOriginX+(-(portalWidth-tile.width)/2))+'px',
