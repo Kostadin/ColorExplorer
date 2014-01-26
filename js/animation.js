@@ -14,6 +14,14 @@ function getEnemySpriteCoords(name) {
 	};
 }
 
+function getDeathSpriteCoords(name) {
+	var $st = $deathXml.find('SubTexture[name="' + name + '"]');
+	return {
+		x: -parseInt($st.attr('x')), 
+		y: -parseInt($st.attr('y'))
+	};
+}
+
 function getPlayerAnimationFrame(frame, animation, color) {
 	switch (animation) {
 		case "run": {
@@ -74,3 +82,14 @@ function getEnemyAnimationFrame (frame) {
 		};
 	return info;
 }
+
+function getPlayerDeathAnimationFrame (frame) {
+	frame = frame % playerDeathAnimation.length;
+	var sprite = getDeathSpriteCoords(playerDeathAnimation[frame]);
+	var info = {
+		x: sprite.x,
+		y: sprite.y
+		};
+	return info;
+}
+
