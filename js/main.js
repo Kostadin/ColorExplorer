@@ -47,7 +47,7 @@ function loadLevel(id){
 	for (var i=0;i<currentLevel.enemies.length;++i){
 		var enemy = currentLevel.enemies[i];
 		enemy.vel = [0,0];
-		enemies += '<div id="enemy_'+i+'" class="enemy" style="left:'+(enemy.x+enemyDivOffsetX)+'px;top:'+(enemy.y+enemyDivOffsetY)+'px"></div>';
+		enemies += '<div id="enemy_'+i+'" class="enemy '+colors[enemy.color]+'Enemy" style="left:'+(enemy.x+enemyDivOffsetX)+'px;top:'+(enemy.y+enemyDivOffsetY)+'px"></div>';
 	}
 	$('#level').append(player);
 	$('#level').append(tiles);
