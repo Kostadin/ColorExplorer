@@ -1,6 +1,6 @@
-var playerRunAnimation = ["run01.png","run02.png","run03.png","run04.png","run05.png","run06.png","run07.png","run08.png"];
+var playerRunAnimation = ["run1.png","run2.png","run3.png","run4.png","run5.png","run6.png","run7.png","run8.png"];
 
-var playerIdleAnimation = ["idle01.png","idle01.png","idle02.png","idle02.png","idle03.png","idle03.png","idle04.png","idle04.png"];
+var playerIdleAnimation = ["idle1.png","idle1.png","idle2.png","idle2.png","idle3.png","idle3.png","idle4.png","idle4.png"];
 
 var playerJumpAnimation = ["jump.png"];
 

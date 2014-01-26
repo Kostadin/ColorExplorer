@@ -1,11 +1,8 @@
 function getSpriteCoords(name) {
 	var $st = $spriteXml.find('SubTexture[name="' + name + '"]');
-	var $ht = $helmetXml.find('SubTexture[name="' + name + '"]');
 	return {
 		x: -parseInt($st.attr('x')), 
-		y: -parseInt($st.attr('y')),
-		xHelmet: -parseInt($ht.attr('x')), 
-		yHelmet: -parseInt($ht.attr('y'))
+		y: -parseInt($st.attr('y'))
 	};
 }
 
@@ -17,64 +14,53 @@ function getEnemySpriteCoords(name) {
 	};
 }
 
-function getPlayerAnimationFrame(frame, animation) {
+function getPlayerAnimationFrame(frame, animation, color) {
 	switch (animation) {
 		case "run": {
 			frame = frame % playerRunAnimation.length;
-			var sprite = getSpriteCoords(playerRunAnimation[frame]);
+			var sprite = getSpriteCoords(color+playerRunAnimation[frame]);
 			var info = {
 				x: sprite.x,
-				y: sprite.y,
-				xHelmet: sprite.xHelmet,
-				yHelmet: sprite.yHelmet
+				y: sprite.y
 				};
 			break;
 			}
 		case "idle": {
 			frame = frame % playerIdleAnimation.length;
-			var sprite = getSpriteCoords(playerIdleAnimation[frame]);
+			var sprite = getSpriteCoords(color+playerIdleAnimation[frame]);
 			var info = {
 				x: sprite.x,
-				y: sprite.y,
-				xHelmet: sprite.xHelmet,
-				yHelmet: sprite.yHelmet
+				y: sprite.y
 				};
 			break;
 			}
 		case "jump": {
 			frame = frame % playerJumpAnimation.length;
-			var sprite = getSpriteCoords(playerJumpAnimation[frame]);
+			var sprite = getSpriteCoords(color+playerJumpAnimation[frame]);
 			var info = {
 				x: sprite.x,
-				y: sprite.y,
-				xHelmet: sprite.xHelmet,
-				yHelmet: sprite.yHelmet
+				y: sprite.y
 				};
 			break;
 			}
 		case "fall": {
 			frame = frame % playerFallAnimation.length;
-			var sprite = getSpriteCoords(playerFallAnimation[frame]);
+			var sprite = getSpriteCoords(color+playerFallAnimation[frame]);
 			var info = {
 				x: sprite.x,
-				y: sprite.y,
-				xHelmet: sprite.xHelmet,
-				yHelmet: sprite.yHelmet
+				y: sprite.y
 				};
 			break;
 			}
 		default: {
 			var info = {
 				x: 0,
-				y: 0,
-				xHelmet: 0,
-				yHelmet: 0
+				y: 0
 				};
 			break;
 			}
 	}
-	
-	
+		
 	return info;
 	
 }

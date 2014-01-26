@@ -141,7 +141,7 @@ body{
 	width:125px;
 	height:107px;
 	z-index: 5;
-	background-image: url("../img/sprite/sheet.png"), url("../img/sprite/red/sheet.png");
+	background-image: url("../img/sprite/sheet.png");
 }
 
 .tile, .portal{
