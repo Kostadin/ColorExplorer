@@ -166,6 +166,9 @@ function runGame(){
 					clearInterval(runGameHandle);
 					runGameInterval = null;
 					alert('Game over.');
+					//Stop BGM
+					backgroundTrack.currentTime = 0;
+					backgroundTrack.pause();
 					currentTry = 0;
 					$('#level').hide();
 					$('#mainMenu').show();
