@@ -1,66 +1,9 @@
-var playerRunAnimation = [
-	{
-		name: "run01.png"
-	},
-	{
-		name: "run02.png"
-	},
-	{
-		name: "run03.png"
-	},
-	{
-		name: "run04.png"
-	},
-	{
-		name: "run05.png"
-	},
-	{
-		name: "run06.png"
-	},
-	{
-		name: "run07.png"
-	},
-	{
-		name: "run08.png"
-	}
-];
+var playerRunAnimation = ["run01.png","run02.png","run03.png","run04.png","run05.png","run06.png","run07.png","run08.png"];
 
-var playerIdleAnimation = [
-	{
-		name: "idle01.png"
-	},
-	{
-		name: "idle01.png"
-	},
-	{
-		name: "idle02.png"
-	},
-	{
-		name: "idle02.png"
-	},
-	{
-		name: "idle03.png"
-	},
-	{
-		name: "idle03.png"
-	},
-	{
-		name: "idle04.png"
-	},
-	{
-		name: "idle04.png"
-	}
-];
+var playerIdleAnimation = ["idle01.png","idle01.png","idle02.png","idle02.png","idle03.png","idle03.png","idle04.png","idle04.png"];
 
-var playerJumpAnimation = {
-		name: "jump.png"
-};
+var playerJumpAnimation = ["jump.png"];
 
-var playerFallAnimation = [
-	{
-		name: "fall.png"
-	},
-	{
-		name: "fall.png"
-	}
-];
+var playerFallAnimation = ["fall.png"];
+
+var enemyAnimation = ["monster1.png" , "monster2.png", "monster3.png", "monster4.png", "monster5.png", "monster6.png", "monster7.png", "monster8.png", "monster9.png"];
