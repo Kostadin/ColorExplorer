@@ -159,36 +159,58 @@ function runGame(){
 		$('#debug').html('<p>'+Math.round(p.x)+', '+Math.round(p.y)+'</p>');
 		//End determination
 		if ((!p.win)&&(p.dead)&&(deadAnimationHandle == null)){
+			console.log('Dead '+(new Date()).getSeconds());
+			gameRunning = false;
+			clearInterval(runGameHandle);
+			runGameInterval = null;
 			deadAnimationHandle = setTimeout(function(){
 				++currentTry;
 				if (currentTry>=maxTries) {
-					gameRunning = false;
-					clearInterval(runGameHandle);
-					runGameInterval = null;
-					alert('Game over.');
 					currentTry = 0;
+					currentLevelIndex = 0;
 					$('#level').hide();
-					$('#mainMenu').show();
+					$('#gameOver').show();
+					setTimeout(function(){
+						$('#gameOver').hide();
+						$('#mainMenu').show();
+					},gameOverDelayMS);
 				} else {
 					loadLevel(currentLevelIndex);
+					gameRunning = true;
+					runGameHandle = setInterval(runGame,1000/fps);
 				}
 				deadAnimationHandle = null;
 			},deathDelayMS);
 		} else if ((!p.dead)&&(p.win)&&(winAnimationHandle == null)){
+			console.log('Win '+(new Date()).getSeconds());
+			gameRunning = false;
+			clearInterval(runGameHandle);
+			runGameInterval = null;
 			winAnimationHandle = setTimeout(function(){
 				if (currentLevelIndex<levels.length-1){
 					++currentLevelIndex;
-					winAnimationHandle = null;
-					loadLevel(currentLevelIndex);
-				} else {
-					gameRunning = false;
-					clearInterval(runGameHandle);
-					runGameInterval = null;
-					alert('You win.');
-					currentTry = 0;
 					$('#level').hide();
-					$('#mainMenu').show();
+					$('#levelNumber').html(currentLevelIndex+1);
+					$('#mainMenu').hide();
+					$('#transition').show();
+					setTimeout(function(){
+						$('#transition').hide();
+						loadLevel(currentLevelIndex);
+						gameRunning = true;
+						runGameHandle = setInterval(runGame,1000/fps);
+						backgroundTrack.play();
+					},transitionScreenDelayMS);
+				} else {
+					currentTry = 0;
+					currentLevelIndex = 0;
+					$('#level').hide();
+					$('#youWin').show();
+					setTimeout(function(){
+						$('#youWin').hide();
+						$('#mainMenu').show();
+					},youWinDelayMS);
 				}
+				winAnimationHandle = null;
 			},winDelayMS);
 		}
 	}else{	
@@ -198,14 +220,19 @@ function runGame(){
 }
 
 function startGame(){
-	if (!gameRunning){
+	if (!gameRunning){		
 		currentTry = 0;
 		currentLevelIndex = 0;
-		loadLevel(currentLevelIndex);
+		$('#levelNumber').html(currentLevelIndex+1);
 		$('#mainMenu').hide();
-		gameRunning = true;
-		runGameHandle = setInterval(runGame,1000/fps);
-		backgroundTrack.play();
+		$('#transition').show();
+		setTimeout(function(){
+			$('#transition').hide();
+			loadLevel(currentLevelIndex);
+			gameRunning = true;
+			runGameHandle = setInterval(runGame,1000/fps);
+			backgroundTrack.play();
+		},transitionScreenDelayMS);
 	}
 }
 
@@ -248,7 +275,7 @@ $(function(){
 			upPressed = false;
 		} else if (code == 39) {
 			rightPressed = false;
-		} else if (code == 13) {
+		} else if ((code == 13)&&($('#mainMenu').css('display')=='block')) {
 			startGame();
 		}
 	});

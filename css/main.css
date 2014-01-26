@@ -26,12 +26,41 @@
 	z-index:100;
 }
 
-#level{
+.gameScreen{
 	position:absolute;
 	left:0px;
 	top:0px;
 	width:1024px;
 	height:600px;
+}
+
+#transition{
+	font-size:100px;
+	color:white;
+	background-color:black;
+	text-align:center;
+	line-height:600px;
+}
+
+#gameOver{
+	font-size:100px;
+	font-weight:bold;
+	color:red;
+	background-color:black;
+	text-align:center;
+	line-height:600px;
+}
+
+#youWin{
+	font-size:100px;
+	font-weight:bold;
+	color:yellow;
+	background-color:black;
+	text-align:center;
+	line-height:600px;
+}
+
+#level{
 	background-image: url("../img/bg/rocks.png"), url("../img/bg/tile1.png");
 	background-repeat: repeat-x, no-repeat;
 }

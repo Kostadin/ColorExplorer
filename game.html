@@ -16,11 +16,20 @@
 <body>
 	<div id="container">
 		<div id="screen">
-			<div id="mainMenu">
+			<div id="mainMenu" style="display:block;">
 				<div id="logo">Color Explorer</div>
 				<div id="btnPlay">Play</div>
 			</div>
-			<div id="level" style="display:none;">
+			<div id="transition" class="gameScreen" style="display:none;">
+				Level <span id="levelNumber"></span>
+			</div>
+			<div id="level" class="gameScreen" style="display:none;">
+			</div>
+			<div id="gameOver" class="gameScreen" style="display:none;">
+				Game Over
+			</div>
+			<div id="youWin" style="display:none;">
+				YOU WIN
 			</div>
 			<div id="curtainLeft"></div>
 			<div id="curtainRight">
