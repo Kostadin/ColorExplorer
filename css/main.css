@@ -27,8 +27,10 @@ body{
 	left:0px;
 	top:0px;
 	width:1024px;
+	height:600px;
 	padding-top:150px;
 	z-index:100;
+	background-image: url("../img/title.png");
 }
 
 .gameScreen{
