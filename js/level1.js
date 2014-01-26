@@ -4,7 +4,7 @@ levels[1]={
         player: {
                 x:0,
                 y:0,
-                width:64,
+                width:50,
                 height:80,
                 color:0
         },

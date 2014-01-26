@@ -13,7 +13,7 @@ var currentColor = 0;
 var currentColorCSS = colors[currentColor];
 var muteSound = false;
 var playerFacing = "right";
-var playerDivOffsetX = -23;
+var playerDivOffsetX = -25;
 var playerDivOffsetY = -20;
 var parallaxRatio = 3;
 //Animation counter
