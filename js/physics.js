@@ -151,6 +151,7 @@ function runPhysics(){
 				var enemy = currentLevel.enemies[i];
 				if ((enemy.color==p.color)&&collision({x:currPos[0],y:currPos[1],width:p.width,height:p.height},enemy)){
 					p.dead = true;
+					p.killed = true;
 					stepVel[0] = 0;
 					stepVel[1] = 0;
 					currVel[0] = 0;

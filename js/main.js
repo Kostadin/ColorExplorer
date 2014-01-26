@@ -27,6 +27,7 @@ function loadLevel(id){
 	p.canJump = false;
 	p.dead = false;
 	p.win = false;
+	p.killed = false;
 	if (currentLevel.enemies==undefined){
 		currentLevel.enemies=[];
 	}
@@ -186,6 +187,22 @@ function runGame(){
 			gameRunning = false;
 			clearInterval(runGameHandle);
 			runGameInterval = null;
+			if (p.killed){
+				$('#player').css('background-image','url("img/sprite/deathSheet.png")');
+				currentExplodeFrame = 0;
+				explodeAnimationHandle = setInterval(function(){
+					if (currentExplodeFrame < playerDeathAnimation.length){
+						var playerDeathFrameInfo = getPlayerDeathAnimationFrame(currentExplodeFrame);
+						
+						$('#player').css( 'background-position', playerDeathFrameInfo.x + 'px ' + playerDeathFrameInfo.y + 'px');
+
+						currentExplodeFrame++;
+					} else {
+						clearInterval(explodeAnimationHandle);
+						explodeAnimationHandle = null;
+					}
+				},(deathDelayMS - 60) / (Math.round(fps / 2)));
+			}
 			deadAnimationHandle = setTimeout(function(){
 				++currentTry;
 				if (currentTry>=maxTries) {

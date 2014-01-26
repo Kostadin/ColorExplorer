@@ -6,4 +6,7 @@ var playerJumpAnimation = ["jump.png"];
 
 var playerFallAnimation = ["fall.png"];
 
+var playerDeathAnimation = ["death01.png", "death02.png", "death03.png", "death04.png", "death05.png", "death06.png", "death07.png", "death08.png", 
+							"death09.png", "death10.png", "death11.png", "death12.png", "death13.png"]
+
 var enemyAnimation = ["attack1.png" , "attack2.png", "attack3.png", "attack4.png", "attack5.png", "attack6.png", "attack7.png", "attack8.png", "attack9.png"];

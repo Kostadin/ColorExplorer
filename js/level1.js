@@ -1623,7 +1623,7 @@ levels[1]={
                 x:15360,
                 y:78,
                 width:128,
-                height:18,
+                height:2,
                 color:0,
                 texture:'img/brick0.jpg'
         }],
