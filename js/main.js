@@ -180,10 +180,10 @@ function runGame(){
 				});
 		}
 		//Debug
-		$('#debug').html('<p>'+Math.round(p.x)+', '+Math.round(p.y)+'</p>');
+		//$('#debug').html('<p>'+Math.round(p.x)+', '+Math.round(p.y)+'</p>');
 		//End determination
 		if ((!p.win)&&(p.dead)&&(deadAnimationHandle == null)){
-			console.log('Dead '+(new Date()).getSeconds());
+			//console.log('Dead '+(new Date()).getSeconds());
 			gameRunning = false;
 			clearInterval(runGameHandle);
 			runGameInterval = null;
@@ -228,7 +228,7 @@ function runGame(){
 				deadAnimationHandle = null;
 			},deathDelayMS);
 		} else if ((!p.dead)&&(p.win)&&(winAnimationHandle == null)){
-			console.log('Win '+(new Date()).getSeconds());
+			//console.log('Win '+(new Date()).getSeconds());
 			gameRunning = false;
 			clearInterval(runGameHandle);
 			runGameInterval = null;
@@ -340,22 +340,24 @@ $(function(){
 			gameOver.muted = muteSound;
 		}
 	});
-	$('body').on('keyup',function(e){
-		var code = e.keyCode;
-		if (gameRunning){
-			if (code == 32) {
-				currentColor = (++currentColor)%colorCount;
-				currentColorCSS = colors[currentColor];
+	setTimeout(function(){
+		$('body').on('keyup',function(e){
+			var code = e.keyCode;
+			if (gameRunning){
+				if (code == 32) {
+					currentColor = (++currentColor)%colorCount;
+					currentColorCSS = colors[currentColor];
+				}
 			}
-		}
-		if (code == 37) {
-			leftPressed = false;
-		} else if (code == 38) {
-			upPressed = false;
-		} else if (code == 39) {
-			rightPressed = false;
-		} else if ((code == 13)&&($('#mainMenu').css('display')=='block')) {
-			startGame();
-		}
-	});
+			if (code == 37) {
+				leftPressed = false;
+			} else if (code == 38) {
+				upPressed = false;
+			} else if (code == 39) {
+				rightPressed = false;
+			} else if ((code == 13)&&($('#mainMenu').css('display')=='block')) {
+				startGame();
+			}
+		});
+	},100);
 });
