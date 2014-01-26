@@ -61,6 +61,25 @@ body{
 	line-height:600px;
 }
 
+#instructions{
+	position:absolute;
+	left:0px;
+	top:400px;
+	width:1024px;
+	height:150px;
+}
+
+#controls{
+	display: block;
+	width:512px;
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+	color:grey;
+	font-size:20px;
+	line-height:30px;
+}
+
 #gameOver{
 	font-size:100px;
 	font-weight:bold;
