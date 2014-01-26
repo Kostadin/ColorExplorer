@@ -195,9 +195,13 @@ function runGame(){
 						var playerDeathFrameInfo = getPlayerDeathAnimationFrame(currentExplodeFrame);
 						
 						$('#player').css( 'background-position', playerDeathFrameInfo.x + 'px ' + playerDeathFrameInfo.y + 'px');
-
+						if (currentExplodeFrame == 5) {
+							playerDeath.currentTime = 0;
+							playerDeath.play();
+						}
 						currentExplodeFrame++;
 					} else {
+						playerDeath.pause();
 						clearInterval(explodeAnimationHandle);
 						explodeAnimationHandle = null;
 					}
@@ -218,6 +222,8 @@ function runGame(){
 					setTimeout(function(){
 						$('#gameOver').hide();
 						$('#mainMenu').show();
+						mainTheme.currentTime = 0;
+						mainTheme.play();
 						gameOver.pause();
 					},gameOverDelayMS);
 				} else {
@@ -241,6 +247,7 @@ function runGame(){
 					$('#level').hide();
 					$('#levelNumber').html(currentLevelIndex+1);
 					$('#mainMenu').hide();
+					mainTheme.pause();
 					$('#transition').show();
 					setTimeout(function(){
 						$('#transition').hide();
@@ -260,6 +267,8 @@ function runGame(){
 					setTimeout(function(){
 						$('#youWin').hide();
 						$('#mainMenu').show();
+						mainTheme.currentTime = 0;
+						mainTheme.play();
 					},youWinDelayMS);
 				}
 				winAnimationHandle = null;
@@ -277,6 +286,7 @@ function startGame(){
 		currentLevelIndex = 0;
 		$('#levelNumber').html(currentLevelIndex+1);
 		$('#mainMenu').hide();
+		mainTheme.pause();
 		$('#transition').show();
 		setTimeout(function(){
 			$('#transition').hide();
@@ -321,9 +331,12 @@ $(function(){
 	$('#credits').click(function(){
 		$('#credits').hide();
 		$('#mainMenu').show();
+		mainTheme.currentTime = 0;
+		mainTheme.play();
 	});
 	$('#btnCredits').click(function(){
 		$('#mainMenu').hide();
+		mainTheme.pause();
 		$('#credits').show();
 	});
 	$('body').on('keydown',function(e){
@@ -341,6 +354,8 @@ $(function(){
 			backgroundTrack.muted = muteSound;
 			wilhelm.muted = muteSound;
 			gameOver.muted = muteSound;
+			playerDeath.muted = muteSound;
+			mainTheme.muted = muteSound;
 		}
 	});
 	setTimeout(function(){
