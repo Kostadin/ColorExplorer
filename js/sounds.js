@@ -7,3 +7,5 @@ backgroundTrack.addEventListener('ended', function() {
 }, false);
 
 var wilhelm = new Audio("audio/WilhelmScream.mp3");
+
+var gameOver = new Audio("audio/Game_Over.mp3");

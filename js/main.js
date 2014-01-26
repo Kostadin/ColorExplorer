@@ -196,9 +196,12 @@ function runGame(){
 					currentLevelIndex = 0;
 					$('#level').hide();
 					$('#gameOver').show();
+					gameOver.currentTime = 0;
+					gameOver.play();
 					setTimeout(function(){
 						$('#gameOver').hide();
 						$('#mainMenu').show();
+						gameOver.pause();
 					},gameOverDelayMS);
 				} else {
 					loadLevel(currentLevelIndex);
@@ -317,6 +320,7 @@ $(function(){
 			muteSound = !muteSound;
 			backgroundTrack.muted = muteSound;
 			wilhelm.muted = muteSound;
+			gameOver.muted = muteSound;
 		}
 	});
 	$('body').on('keyup',function(e){
