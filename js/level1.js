@@ -1621,10 +1621,36 @@ levels[1]={
 		{
                 type: portal,
                 x:15360,
-                y:60,
+                y:78,
                 width:128,
                 height:18,
                 color:0,
                 texture:'img/brick0.jpg'
-        }]
+        }],
+	enemies:[
+		{
+			x:-500,
+			y:600,
+			width: 50,
+			height: 50,
+			color:0
+		},{
+			x:-500,
+			y:-200,
+			width: 50,
+			height: 50,
+			color:1
+		},{
+			x:-500,
+			y:500,
+			width: 50,
+			height: 50,
+			color:2
+		},{
+			x:-500,
+			y:0,
+			width: 50,
+			height: 50,
+			color:3
+		}]
 };

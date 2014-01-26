@@ -7,7 +7,7 @@ var maxSideSpeed = maxSideSpeedPerSec/fps;
 var maxJumpSpeedPerSec = -1000;
 var maxJumpSpeed = maxJumpSpeedPerSec/fps;
 var initialJumpSpeed = -1000/fps;
-var maxEnemySpeed = maxSideSpeedPerSec/fps;
+var maxEnemySpeed = (maxSideSpeedPerSec+20)/fps;
 
 function addVectors(a,b){
 	return [a[0]+b[0],a[1]+b[1]]
