@@ -15,6 +15,8 @@ var muteSound = false;
 var playerFacing = "right";
 var playerDivOffsetX = -40;
 var playerDivOffsetY = -20;
+var enemyDivOffsetX = -25;
+var enemyDivOffsetY = -20;
 var parallaxRatio = 3;
 //Animation counter
 var animationFrame = 0;

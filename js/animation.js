@@ -86,4 +86,5 @@ function getEnemyAnimationFrame (frame) {
 		x: sprite.x,
 		y: sprite.y
 		};
+	return info;
 }

@@ -123,6 +123,7 @@
 .enemy{
 	position: absolute;
 	z-index: 3;
-	width:50px;
-	height:50px;
+	width:100px;
+	height:80px;
+	background-image: url("../img/monster/sheet.png");
 }
