@@ -1,4 +1,9 @@
-﻿body{
+﻿html{
+	margin:0px;
+	overflow:hidden;
+}
+
+body{
 	background-color:grey;
 	margin:0px;
 	overflow:hidden;
