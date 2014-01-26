@@ -1,9 +1,9 @@
 levels[2]={
-        width:15360,
+        width:15488,
         height:600,
         player: {
-                x:0,
-                y:540,
+                x:30,
+                y:260,
 				width:48,
                 height:80,
                 color:0
@@ -69,7 +69,7 @@ levels[2]={
         },{
                 type: platform,
                 x:1920,
-                y:180,
+                y:240,
                 width:128,
                 height:18,
                 color:0,
@@ -697,7 +697,7 @@ levels[2]={
         },{
                 type: platform,
                 x:2432,
-                y:240,
+                y:280,
                 width:128,
                 height:18,
                 color:2,
@@ -980,6 +980,14 @@ levels[2]={
                 type: platform,
                 x:128,
                 y:340,
+                width:128,
+                height:18,
+                color:3,
+                texture:'img/brick0.jpg'
+        },{
+                type: platform,
+                x:128,
+                y:580,
                 width:128,
                 height:18,
                 color:3,

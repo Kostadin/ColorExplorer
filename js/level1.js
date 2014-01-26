@@ -511,7 +511,7 @@ levels[1]={
         },{
                 type: platform,
                 x:8576,
-                y:180,
+                y:220,
                 width:128,
                 height:18,
                 color:1,
@@ -519,7 +519,7 @@ levels[1]={
         },{
                 type: platform,
                 x:8832,
-                y:180,
+                y:240,
                 width:128,
                 height:18,
                 color:1,
@@ -912,8 +912,8 @@ levels[1]={
                 texture:'img/brick0.jpg'
         },{
                 type: platform,
-                x:7878,
-                y:60,
+                x:7680,
+                y:100,
                 width:128,
                 height:18,
                 color:2,
