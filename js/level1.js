@@ -1621,7 +1621,7 @@ levels[1]={
 		{
                 type: portal,
                 x:15360,
-                y:60,
+                y:78,
                 width:128,
                 height:18,
                 color:0,
