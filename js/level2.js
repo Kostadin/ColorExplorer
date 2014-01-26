@@ -1,5 +1,5 @@
 levels[2]={
-        width:15360,
+        width:15488,
         height:600,
         player: {
                 x:0,
