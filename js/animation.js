@@ -9,12 +9,19 @@ function getSpriteCoords(name) {
 	};
 }
 
+function getEnemySpriteCoords(name) {
+	var $st = $enemyXml.find('SubTexture[name="' + name + '"]');
+	return {
+		x: -parseInt($st.attr('x')), 
+		y: -parseInt($st.attr('y'))
+	};
+}
+
 function getPlayerAnimationFrame(frame, animation) {
 	switch (animation) {
 		case "run": {
-			//8 frames
-			frame = frame % 8;
-			var sprite = getSpriteCoords(playerRunAnimation[frame].name);
+			frame = frame % playerRunAnimation.length;
+			var sprite = getSpriteCoords(playerRunAnimation[frame]);
 			var info = {
 				x: sprite.x,
 				y: sprite.y,
@@ -24,9 +31,8 @@ function getPlayerAnimationFrame(frame, animation) {
 			break;
 			}
 		case "idle": {
-			//4 frames
-			frame = frame % 8;
-			var sprite = getSpriteCoords(playerIdleAnimation[frame].name);
+			frame = frame % playerIdleAnimation.length;
+			var sprite = getSpriteCoords(playerIdleAnimation[frame]);
 			var info = {
 				x: sprite.x,
 				y: sprite.y,
@@ -36,8 +42,8 @@ function getPlayerAnimationFrame(frame, animation) {
 			break;
 			}
 		case "jump": {
-			//1 frame
-			var sprite = getSpriteCoords(playerJumpAnimation.name);
+			frame = frame % playerJumpAnimation.length;
+			var sprite = getSpriteCoords(playerJumpAnimation[frame]);
 			var info = {
 				x: sprite.x,
 				y: sprite.y,
@@ -47,9 +53,8 @@ function getPlayerAnimationFrame(frame, animation) {
 			break;
 			}
 		case "fall": {
-			//2 frames
-			frame = frame % 2;
-			var sprite = getSpriteCoords(playerFallAnimation[frame].name);
+			frame = frame % playerFallAnimation.length;
+			var sprite = getSpriteCoords(playerFallAnimation[frame]);
 			var info = {
 				x: sprite.x,
 				y: sprite.y,
@@ -72,4 +77,14 @@ function getPlayerAnimationFrame(frame, animation) {
 	
 	return info;
 	
+}
+
+function getEnemyAnimationFrame (frame) {
+	frame = frame % enemyAnimation.length;
+	var sprite = getEnemySpriteCoords(enemyAnimation[frame]);
+	var info = {
+		x: sprite.x,
+		y: sprite.y
+		};
+	return info;
 }

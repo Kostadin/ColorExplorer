@@ -48,7 +48,7 @@ function loadLevel(id){
 	for (var i=0;i<currentLevel.enemies.length;++i){
 		var enemy = currentLevel.enemies[i];
 		enemy.vel = [0,0];
-		enemies += '<div id="enemy_'+i+'" class="enemy" style="left:'+enemy.x+'px;top:'+enemy.y+'px;background-color:'+colors[enemy.color]+'"></div>';
+		enemies += '<div id="enemy_'+i+'" class="enemy" style="left:'+(enemy.x+enemyDivOffsetX)+'px;top:'+(enemy.y+enemyDivOffsetY)+'px"></div>';
 	}
 	$('#level').append(player);
 	$('#level').append(tiles);
@@ -101,15 +101,18 @@ function runGame(){
 			animationType = "jump";
 			
 		var playerFrameInfo = getPlayerAnimationFrame(animationFrame, animationType);
-		//var playerFrameInfo = getPlayerAnimationFrame(0, animationType);
-
+		var enemyFrameInfo = getEnemyAnimationFrame(animationFrame);
+		
 		setScreenOrigin(currentLevel);
 		
+		//Display
+		
+		//Background parallax
 		$('#level').css({
 			'background-position': (-screenOriginX / parallaxRatio) + 'px ' + '0px , 0px 0px',
 		});
-			
-		//Display
+
+		//Player
 		if (playerFacing == "right") {
 			$('#player').css({
 				left: (p.x-screenOriginX+playerDivOffsetX)+'px',
@@ -129,7 +132,7 @@ function runGame(){
 				transform: 'scaleX(-1)'
 			});
 		}
-		
+		//Platforms
 		for(var i=0;i<currentLevel.tiles.length;++i){
 			var tile = currentLevel.tiles[i];
 			if (tile.type==platform){
@@ -146,13 +149,15 @@ function runGame(){
 				});
 			}
 		}
+		//Enemies
 		for (var i=0;i<currentLevel.enemies.length;++i){
 			var enemy = currentLevel.enemies[i];
 			enemy.vel = [0,0];
 			$('#enemy_'+i).css({
-					left: (enemy.x-screenOriginX)+'px',
-					top: (enemy.y-screenOriginY)+'px',
-					display: (((enemy.color==currentColor)&&(tileVisible(enemy)))?'block':'none')
+					left: (enemy.x-screenOriginX+enemyDivOffsetX)+'px',
+					top: (enemy.y-screenOriginY+enemyDivOffsetY)+'px',
+					display: (((enemy.color==currentColor)&&(tileVisible(enemy)))?'block':'none'),
+					'background-position': enemyFrameInfo.x + 'px ' + enemyFrameInfo.y + 'px'
 				});
 		}
 		//Debug
@@ -166,6 +171,9 @@ function runGame(){
 			deadAnimationHandle = setTimeout(function(){
 				++currentTry;
 				if (currentTry>=maxTries) {
+					//Stop BGM
+					backgroundTrack.currentTime = 0;
+					backgroundTrack.pause();
 					currentTry = 0;
 					currentLevelIndex = 0;
 					$('#level').hide();
@@ -188,6 +196,9 @@ function runGame(){
 			runGameInterval = null;
 			winAnimationHandle = setTimeout(function(){
 				if (currentLevelIndex<levels.length-1){
+					//Stop BGM
+					backgroundTrack.currentTime = 0;
+					backgroundTrack.pause();
 					++currentLevelIndex;
 					$('#level').hide();
 					$('#levelNumber').html(currentLevelIndex+1);
@@ -201,6 +212,9 @@ function runGame(){
 						backgroundTrack.play();
 					},transitionScreenDelayMS);
 				} else {
+					//Stop BGM
+					backgroundTrack.currentTime = 0;
+					backgroundTrack.pause();
 					currentTry = 0;
 					currentLevelIndex = 0;
 					$('#level').hide();
