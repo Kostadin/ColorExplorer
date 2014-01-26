@@ -34,7 +34,7 @@ function loadLevel(id){
 	setScreenOrigin(currentLevel);
 	$('#level').html('');
 
-	var player = '<div id="player" style="left:'+(p.x-screenOriginX)+'px;top:'+(p.y-screenOriginY)+'px;"/>';
+	var player = '<div id="player" style="left:'+(p.x-screenOriginX+playerDivOffsetX)+'px;top:'+(p.y-screenOriginY+playerDivOffsetY)+'px;"/>';
 	var tiles = '';
 	var enemies = '';
 	for(var i=0;i<currentLevel.tiles.length;++i){
@@ -56,6 +56,9 @@ function loadLevel(id){
 	$('#level').css({
 		display: 'block'
 	});
+	leftPressed = false;
+	upPressed = false;
+	rightPressed = false;
 }
 
 function runGame(){
