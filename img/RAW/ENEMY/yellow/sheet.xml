@@ -1,0 +1,11 @@
+<TextureAtlas imagePath="sheet.png">
+	<SubTexture name="attack1.png" x="127" y="108" width="125" height="106"/>
+	<SubTexture name="attack2.png" x="254" y="108" width="125" height="106"/>
+	<SubTexture name="attack3.png" x="254" y="0" width="125" height="106"/>
+	<SubTexture name="attack4.png" x="127" y="216" width="125" height="106"/>
+	<SubTexture name="attack5.png" x="254" y="216" width="125" height="106"/>
+	<SubTexture name="attack6.png" x="127" y="0" width="125" height="106"/>
+	<SubTexture name="attack7.png" x="0" y="216" width="125" height="106"/>
+	<SubTexture name="attack8.png" x="0" y="108" width="125" height="106"/>
+	<SubTexture name="attack9.png" x="0" y="0" width="125" height="106"/>
+</TextureAtlas>

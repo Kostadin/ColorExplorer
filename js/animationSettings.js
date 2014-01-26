@@ -6,4 +6,4 @@ var playerJumpAnimation = ["jump.png"];
 
 var playerFallAnimation = ["fall.png"];
 
-var enemyAnimation = ["monster1.png" , "monster2.png", "monster3.png", "monster4.png", "monster5.png", "monster6.png", "monster7.png", "monster8.png", "monster9.png"];
+var enemyAnimation = ["attack1.png" , "attack2.png", "attack3.png", "attack4.png", "attack5.png", "attack6.png", "attack7.png", "attack8.png", "attack9.png"];

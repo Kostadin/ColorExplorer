@@ -189,7 +189,22 @@ body{
 .enemy{
 	position: absolute;
 	z-index: 3;
-	width:100px;
-	height:80px;
-	background-image: url("../img/monster/sheet.png");
+	width:125px;
+	height:107px;
+}
+
+.redEnemy{
+	background-image: url("../img/monster/redSheet.png");
+}
+
+.blueEnemy{
+	background-image: url("../img/monster/blueSheet.png");
+}
+
+.yellowEnemy{
+	background-image: url("../img/monster/yellowSheet.png");
+}
+
+.greenEnemy{
+	background-image: url("../img/monster/greenSheet.png");
 }
