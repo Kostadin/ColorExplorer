@@ -64,28 +64,22 @@
 		height: 50,
 		color:0
 	},{
-		x:90,
-		y:200,
-		width: 50,
-		height: 50,
-		color:2
-	},{
-		x:100,
-		y:300,
-		width: 50,
-		height: 50,
-		color:2
-	},{
-		x:600,
-		y:400,
-		width: 50,
-		height: 50,
-		color:3
-	},{
-		x:400,
-		y:50,
+		x:40,
+		y:600,
 		width: 50,
 		height: 50,
 		color:1
+	},{
+		x:1024,
+		y:500,
+		width: 50,
+		height: 50,
+		color:2
+	},{
+		x:800,
+		y:0,
+		width: 50,
+		height: 50,
+		color:3
 	}]
 };
