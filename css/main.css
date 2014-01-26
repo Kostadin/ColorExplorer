@@ -28,7 +28,7 @@ body{
 	top:0px;
 	width:1024px;
 	height:600px;
-	padding-top:150px;
+	padding-top:120px;
 	z-index:100;
 	background-image: url("../img/title.png");
 }
@@ -151,24 +151,25 @@ body{
 }
 
 #btnPlay{
-	margin-top:50px;
+	margin-top:80px;
 	margin-left:auto;
 	margin-right:auto;
 	width:200px;
 	height:80px;
 	text-align:center;
-	background-color:green;
+	background-color:black;
 	border-radius:5px;
 	cursor:pointer;
 	font-size:50px;
 	color:rgb(230,230,230);
-	border:1px solid green;
+	border:1px solid black;
 	line-height:80px;
 }
 
 #btnPlay:hover{
 	color:white;
 	border:1px solid white;
+	text-shadow:0px 0px 25px rgb(51,255,0);
 }
 
 #btnCredits{
@@ -176,17 +177,17 @@ body{
 	margin-left:auto;
 	margin-right:auto;
 	width:200px;
-	height:80px;
+	height:10px;
 	text-align:center;
 	cursor:pointer;
-	font-size:50px;
-	color:rgb(230,230,230);
-	line-height:80px;
+	font-size:40px;
+	color:black;
+	line-height:10px;
 }
 
 #btnCredits:hover{
 	color:white;
-	text-shadow:0px 0px 25px rgb(51,255,0);
+	text-shadow:0px 0px 25px white;
 }
 
 #player{
