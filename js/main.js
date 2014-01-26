@@ -311,9 +311,12 @@ function shuffle(array) {
 $(function(){
 	var credits = ['Kostadin Vodenicharov - Dev', 'Neven Iliev - Dev', 'Todor Imreorov -  Art and Animation' , 'Ilko Birov - Music', 'Jordan Panov - Concept and Level Design'];
 	shuffle(credits);
+	var logstr = 'Credits\n-------\n';
 	for (var i=0;i<credits.length;++i){
 		$('#creditsNames').append('<p>'+credits[i]+'</p>');
+		logstr+=credits[i]+'\n';
 	}
+	console.log(logstr);
 	$('#btnPlay').click(startGame);
 	$('#credits').click(function(){
 		$('#credits').hide();
