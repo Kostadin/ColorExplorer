@@ -319,7 +319,7 @@ function shuffle(array) {
 }
 
 $(function(){
-	var credits = ['Kostadin Vodenicharov - Dev', 'Neven Iliev - Dev', 'Todor Imreorov -  Art and Animation' , 'Ilko Birov - Music', 'Jordan Panov - Level Design'];
+	var credits = ['Kostadin Vodenicharov - Dev', 'Neven Iliev - Dev', 'Todor Imreorov -  Art and Animation' , 'Ilko Birov - Music', 'Jordan Panov - Level Design and Concept'];
 	shuffle(credits);
 	var logstr = 'Credits\n-------\n';
 	for (var i=0;i<credits.length;++i){
